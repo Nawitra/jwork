@@ -2,7 +2,7 @@
  * Class yang menangani lokasi dari perekrut
  *
  * @author Vernando Wijaya Putra
- * @version 2021-03-18
+ * @version 2021.03.18
  */
 public class Location
 {
@@ -14,30 +14,63 @@ public class Location
         this.description = description;
     }
 
+    /**
+     * getProvince untuk mendapatkan nilai dari property province
+     *
+     * @return nilai dari property province
+     */
     public String getProvince() {
         return this.province;
     }
     
+    /**
+     * getCity untuk mendapatkan nilai dari property city
+     *
+     * @return nilai dari property city
+     */
     public String getCity() {
         return this.city;
     }
-    
+
+    /**
+     * getDescription untuk mendapatkan nilai dari property description
+     *
+     * @return nilai dari property description
+     */
     public String getDescription() {
         return this.description;    
     }
     
+    /**
+     * setProvince untuk menggantikan nilai dari property province
+     * 
+     * @param province, property yang nilainya akan digantikan, dengan tipe String
+     */
     public void setProvince(String province) {
         this.province = province;
     }
     
+    /**
+     * setCity untuk menggantikan nilai dari property city
+     * 
+     * @param city, property yang nilainya akan digantikan, dengan tipe String
+     */
     public void setCity(String city) {
         this.city = city;
     }
     
+    /**
+     * setDescription untuk menggantikan nilai dari property description
+     * 
+     * @param description, property yang nilainya akan digantikan, dengan tipe String
+     */
     public void setDescription(String description) {
         this.description = description;    
     }
     
+    /**
+     * printData untuk menampilkan nilai dari property province
+     */
     public void printData() {
         System.out.println(getProvince());
     }

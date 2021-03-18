@@ -2,7 +2,7 @@
  * Class yang menangani detail dari perekrut
  *
  * @author Vernando Wijaya Putra
- * @version 2021-03-18
+ * @version 2021.03.18
  */
 public class Recruiter
 {
@@ -17,6 +17,7 @@ public class Recruiter
         this.phoneNumber = phoneNumber;
         this.location = location;
     }
+    
     
     public int getId() {
         return this.id;
