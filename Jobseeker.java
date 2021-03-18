@@ -1,39 +1,58 @@
 public class Jobseeker
 {
-    private int id;
-    private String name, email, password, joinDate;
+    private int id = 0;
+    private String name = "", email = "", password = "", joinDate = "";
     
-    public Jobseeker(){}
-    
-    public static int getId() {
-        return 0;   
+    public Jobseeker(int id, String name, String email, String password, String joinDate){
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = joinDate;
     }
     
-    public static String getName() {
-        return "oop";
+    public int getId() {
+        return this.id;   
     }
     
-    public static String getEmail() {
-        return "oop";
+    public String getName() {
+        return this.name;
     }
     
-    public static String getPassword() {
-        return "oop";
+    public String getEmail() {
+        return this.email;
     }
     
-    public static String getJoinDate() {
-        return "oop";
+    public String getPassword() {
+        return this.password;
     }
     
-    public static void setId(int id) {}
+    public String getJoinDate() {
+        return this.joinDate;
+    }
     
-    public static void setName(String name) {}
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    public static void setEmail(String email) {}
+    public void setName(String name) {
+        this.name = name;
+    }
     
-    public static void setPassword(String password) {}
+    public void setEmail(String email) {
+        this.email = email;
+    }
     
-    public static void setJoinDate(String joinDate) {}
+    public void setPassword(String password) {
+        this.password = password;
+    }
     
+    public void setJoinDate(String joinDate) {
+        this.joinDate = joinDate;
+    }
+    
+    public void printData() {
+        System.out.println(getName());
+    }
     
 }

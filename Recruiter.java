@@ -1,31 +1,58 @@
 public class Recruiter
 {
-    private int id;
-    private String name, email, phoneNumber;
+    private int id = 0;
+    private String name = "", email = "", phoneNumber = "";
+    private Location location;
     
-    public Recruiter() {}
-    
-    public static int getId() {
-        return 0;
+    public Recruiter(int id, String name, String email, String phoneNumber, Location location) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
+        this.location = location;
     }
     
-    public static String getName() {
-        return "oop";
+    public int getId() {
+        return this.id;
     }
     
-    public static String getEmail() {
-        return "oop";
+    public String getName() {
+        return this.name;
     }
     
-    public static String getPhoneNumber() {
-        return "oop";
+    public String getEmail() {
+        return this.email;
     }
     
-    public static void setId(int id) {}
+    public String getPhoneNumber() {
+        return this.phoneNumber;
+    }
     
-    public static void setEmail(String email) {}
+    public Location getLocation() {
+        return this.location;   
+    }
     
-    public static void setName(String name) {}
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    public static void setPhoneNumber(String phoneNumber) {}
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+    
+    public void setLocation(Location location) {
+        this.location = location;    
+    }
+    
+    public void printData() {
+        System.out.println(getName());
+    }
 }

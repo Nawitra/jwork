@@ -1,31 +1,56 @@
 public class Job
 {
-    private int id, fee;
-    private String name, category;
+    private int id = 0, fee = 0;
+    private String name = "", category = "";
+    private Recruiter recruiter;
     
-    public Job() {}
-    
-    public static int getId() {
-        return 0;
+    public Job(int id, int fee, String name, String category, Recruiter recruiter) {
+        this.id = id;
+        this.fee = fee;
+        this.name = name;
+        this.category = category;
+        this.recruiter = recruiter;
     }
     
-    public static String getName() {
-        return "oop";
+    public int getId() {
+        return this.id;
     }
     
-    public static int getFee() {
-        return 0;
+    public String getName() {
+        return this.name;
     }
     
-    public static String getCategory() {
-        return "oop";
+    public int getFee() {
+        return this.fee;
     }
     
-    public static void setId(int id) {}
+    public String getCategory() {
+        return this.category;
+    }
     
-    public static void setName(String name) {}
+    public Recruiter getRecruiter() {
+        return this.recruiter;   
+    }
+    
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
         
-    public static void setFee(int fee) {}
+    public void setFee(int fee) {
+        this.fee = fee;
+    }
     
-    public static void setCategory(String category) {}
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    
+    public void setRecruiter(Recruiter recruiter) {
+        this.recruiter = recruiter;
+    }
+    
+    public void printData() {}
 }
