@@ -1,3 +1,9 @@
+/**
+ * Class yang menangani detail dari pekerjaan
+ *
+ * @author Vernando Wijaya Putra
+ * @version 2021-03-18
+ */
 public class Job
 {
     private int id = 0, fee = 0;

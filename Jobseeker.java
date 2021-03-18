@@ -1,3 +1,9 @@
+/**
+ * Class yang menangani detail dari pencari pekerjaan
+ *
+ * @author Vernando Wijaya Putra
+ * @version 2021-03-18
+ */
 public class Jobseeker
 {
     private int id = 0;

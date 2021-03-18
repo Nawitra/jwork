@@ -1,9 +1,8 @@
-
 /**
- * Write a description of class DatabaseJob here.
+ * Class yang akan menampung list dari pekerjaan
  *
  * @author Vernando Wijaya Putra
- * @version 2.0
+ * @version 2021-03-18
  */
 public class DatabaseJob
 {

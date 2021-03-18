@@ -1,3 +1,9 @@
+/**
+ * Class yang menangani detail dari perekrut
+ *
+ * @author Vernando Wijaya Putra
+ * @version 2021-03-18
+ */
 public class Recruiter
 {
     private int id = 0;

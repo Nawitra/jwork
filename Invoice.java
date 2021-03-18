@@ -1,3 +1,9 @@
+/**
+ * Class yang menangani detail dari informasi tagihan
+ *
+ * @author Vernando Wijaya Putra
+ * @version 2021-03-18
+ */
 public class Invoice
 {
     private int id, idJob, totalFee;
