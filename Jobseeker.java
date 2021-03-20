@@ -23,7 +23,7 @@ public class Jobseeker
      * @return nilai dari property id
      */
     public int getId() {
-        return this.id;   
+        return id;   
     }
     
     /**
@@ -32,7 +32,7 @@ public class Jobseeker
      * @return nilai dari property name
      */
     public String getName() {
-        return this.name;
+        return name;
     }
     
     /**
@@ -41,7 +41,7 @@ public class Jobseeker
      * @return nilai dari property email
      */
     public String getEmail() {
-        return this.email;
+        return email;
     }
     
     /**
@@ -50,7 +50,7 @@ public class Jobseeker
      * @return nilai dari property password
      */
     public String getPassword() {
-        return this.password;
+        return password;
     }
     
     /**
@@ -59,7 +59,7 @@ public class Jobseeker
      * @return nilai dari property joinDate
      */
     public String getJoinDate() {
-        return this.joinDate;
+        return joinDate;
     }
 
     /**

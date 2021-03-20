@@ -1,6 +1,7 @@
 public class JWork
 {
     public static void main(String[] args) {
+        
         /*
          * Membuat objek Location baru, dengan parameter:
          * province = "Sumatera Selatan"
@@ -94,5 +95,19 @@ public class JWork
         //Memanggil getter setelah melakukan set
         System.out.println(invoice1.getTotalFee());
         
+        /*
+         * Post test
+         */
+        Location locationPT = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+        Recruiter recruiterPT = new Recruiter(2, "Vernando Wijaya Putra", "vernandowijayaputra@gmail.com", "087743031638", locationPT);
+        Job jobPT = new Job(2, 350, "designer", "all_category", recruiterPT);
+        Jobseeker jobseekerPT = new Jobseeker(2, "Job Seek", "jobseeker@test.com", "personhere", "15 february");
+        Invoice invoicePT = new Invoice(2, 2, "15 february", 350, jobseekerPT);
+        
+        System.out.println(recruiterPT.getName());
+        recruiterPT.setName("IM");
+        System.out.println(recruiterPT.getName());
+        
+        jobPT.printData();
     }
 }

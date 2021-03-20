@@ -111,5 +111,7 @@ public class Invoice
     /**
      * printData tidak digunakan untuk apa-apa untuk saat ini.
      */
-    public void printData() {}
+    public void printData() {
+        System.out.println(getTotalFee());
+    }
 }

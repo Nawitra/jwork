@@ -24,7 +24,7 @@ public class Recruiter
      * @return nilai dari property id
      */
     public int getId() {
-        return this.id;
+        return id;
     }
     
     /**
@@ -33,7 +33,7 @@ public class Recruiter
      * @return nilai dari property name
      */
     public String getName() {
-        return this.name;
+        return name;
     }
     
     /**
@@ -42,7 +42,7 @@ public class Recruiter
      * @return nilai dari property email
      */
     public String getEmail() {
-        return this.email;
+        return email;
     }
     
     /**
@@ -51,7 +51,7 @@ public class Recruiter
      * @return nilai dari property phoneNumber
      */
     public String getPhoneNumber() {
-        return this.phoneNumber;
+        return phoneNumber;
     }
     
     /**
@@ -60,7 +60,7 @@ public class Recruiter
      * @return nilai dari objek location
      */
     public Location getLocation() {
-        return this.location;   
+        return location;   
     }
     
     /**

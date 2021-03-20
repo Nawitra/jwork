@@ -24,7 +24,7 @@ public class Job
      * @return nilai dari property id
      */
     public int getId() {
-        return this.id;
+        return id;
     }
     
     
@@ -34,7 +34,7 @@ public class Job
      * @return nilai dari property name
      */
     public String getName() {
-        return this.name;
+        return name;
     }
     
     /**
@@ -43,7 +43,7 @@ public class Job
      * @return nilai dari property fee
      */
     public int getFee() {
-        return this.fee;
+        return fee;
     }
     
     /**
@@ -52,7 +52,7 @@ public class Job
      * @return nilai dari property category
      */
     public String getCategory() {
-        return this.category;
+        return category;
     }
     
     /**
@@ -61,7 +61,7 @@ public class Job
      * @return nilai dari objek recruiter
      */
     public Recruiter getRecruiter() {
-        return this.recruiter;   
+        return recruiter;   
     }
     
     /**
@@ -112,5 +112,7 @@ public class Job
     /**
      * printData tidak digunakan untuk apa-apa untuk saat ini.
      */
-    public void printData() {}
+    public void printData() {
+        System.out.println(getName());
+    }
 }

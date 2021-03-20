@@ -8,10 +8,7 @@ public class DatabaseJob
 {
     private String[] listJob;
 
-    public DatabaseJob()
-    {
-        listJob = new String[255];
-    }
+    public DatabaseJob() {}
     
     /**
      * addJob untuk menambahkan pekerjaan ke dalam listJob

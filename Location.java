@@ -20,7 +20,7 @@ public class Location
      * @return nilai dari property province
      */
     public String getProvince() {
-        return this.province;
+        return province;
     }
     
     /**
@@ -29,7 +29,7 @@ public class Location
      * @return nilai dari property city
      */
     public String getCity() {
-        return this.city;
+        return city;
     }
 
     /**
@@ -38,7 +38,7 @@ public class Location
      * @return nilai dari property description
      */
     public String getDescription() {
-        return this.description;    
+        return description;    
     }
     
     /**
