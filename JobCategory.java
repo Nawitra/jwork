@@ -1,6 +1,6 @@
 
 /**
- * Enumeration class JobCategory - write a description of the enum class here
+ * Enum yang menampung kategori-kategori pekerjaan
  *
  * @author Vernando Wijaya Putra
  * @version 2021.3.25

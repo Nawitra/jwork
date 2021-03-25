@@ -18,11 +18,11 @@ public class DatabaseJob
     }
 
     /**
-     * remove untuk menghapus entry pekerjaan dari listJob
+     * removeJob untuk menghapus entry pekerjaan dari listJob
      *
      * @return false, sebagai nilai default
      */
-    public static boolean remove(Job job) {
+    public static boolean removeJob(Job job) {
         return false;   
     }
     

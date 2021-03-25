@@ -1,6 +1,6 @@
 
 /**
- * Enumeration class PaymentType - write a description of the enum class here
+ * Enum yang menampung tipe-tipe pembayaran
  *
  * @author Vernando Wijaya Putra
  * @version 2021.3.25

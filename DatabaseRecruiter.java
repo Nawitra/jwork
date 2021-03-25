@@ -1,6 +1,6 @@
 
 /**
- * Kelas untuk menampung list recruiter.
+ * Kelas untuk menampung list perekrut.
  *
  * @author Vernando Wijaya Putra
  * @version 2021.3.20
@@ -39,7 +39,7 @@ public class DatabaseRecruiter
     /**
      * getListRecruiter untuk mendapatkan nilai dari property listRecruiter
      *
-     * @return listRecruiter, list dari recruiter
+     * @return listRecruiter, list dari perekrut
      */
     public static String[] getListRecruiter() {
         return listRecruiter;   
