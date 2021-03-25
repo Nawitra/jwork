@@ -1,27 +1,47 @@
 
 /**
- * Write a description of class DatabaseRecruiter here.
+ * Kelas untuk menampung list recruiter.
  *
  * @author Vernando Wijaya Putra
  * @version 2021.3.20
  */
 public class DatabaseRecruiter
 {
-    private String[] listRecruiter;
-
-    public boolean addRecruiter(Recruiter recruiter) {
+    private static String[] listRecruiter;
+    
+    /**
+     * addRecruiter untuk menambahkan perekrut ke dalam listRecruiter
+     *
+     * @return false, sebagai nilai default
+     */
+    public static boolean addRecruiter(Recruiter recruiter) {
         return false;
     }
 
-    public boolean removeRecruiter(Recruiter recruiter) {
+    /**
+     * removeRecruiter untuk menghapus entry perekrut dari listRecruiter
+     *
+     * @return false, sebagai nilai default
+     */
+    public static boolean removeRecruiter(Recruiter recruiter) {
         return false;
     }
     
-    public Recruiter getRecruiter() {
+    /**
+     * getRecruiter untuk mendapatkan nilai dari objek Recruiter
+     *
+     * @return null, karena fungsi belum selesai
+     */
+    public static Recruiter getRecruiter() {
         return null;
     }
     
-    public String[] getListRecruiter() {
+    /**
+     * getListRecruiter untuk mendapatkan nilai dari property listRecruiter
+     *
+     * @return listRecruiter, list dari recruiter
+     */
+    public static String[] getListRecruiter() {
         return listRecruiter;   
     }
 }

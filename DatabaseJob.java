@@ -6,16 +6,14 @@
  */
 public class DatabaseJob
 {
-    private String[] listJob;
+    private static String[] listJob;
 
-    public DatabaseJob() {}
-    
     /**
      * addJob untuk menambahkan pekerjaan ke dalam listJob
      *
      * @return false, sebagai nilai default
      */
-    public boolean addJob(Job job) {
+    public static boolean addJob(Job job) {
         return false;
     }
 
@@ -24,7 +22,7 @@ public class DatabaseJob
      *
      * @return false, sebagai nilai default
      */
-    public boolean remove(Job job) {
+    public static boolean remove(Job job) {
         return false;   
     }
     
@@ -33,7 +31,7 @@ public class DatabaseJob
      *
      * @return null, karena fungsi belum selesai
      */
-    public Job getJob() {
+    public static Job getJob() {
         return null;   
     }
     
@@ -42,7 +40,7 @@ public class DatabaseJob
      *
      * @return listJob, list dari pekerjaan
      */
-    public String[] getListJob() {
+    public static String[] getListJob() {
         return listJob;
     }
 }

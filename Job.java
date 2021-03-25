@@ -7,15 +7,17 @@
 public class Job
 {
     private int id = 0, fee = 0;
-    private String name = "", category = "";
+    private String name = "";
     private Recruiter recruiter;
+    private JobCategory category;
     
-    public Job(int id, int fee, String name, String category, Recruiter recruiter) {
+    public Job(int id, int fee, String name, Recruiter recruiter, JobCategory category) {
         this.id = id;
         this.fee = fee;
         this.name = name;
         this.category = category;
         this.recruiter = recruiter;
+        this.category = category;
     }
     
     /**
@@ -49,9 +51,9 @@ public class Job
     /**
      * getCategory untuk mendapatkan nilai dari property category
      *
-     * @return nilai dari property category
+     * @return nilai dari objek category
      */
-    public String getCategory() {
+    public JobCategory getCategory() {
         return category;
     }
     
@@ -94,9 +96,9 @@ public class Job
     /**
      * setCategory untuk menggantikan nilai dari property category
      * 
-     * @param category, property yang nilainya akan digantikan, dengan tipe String
+     * @param category, property yang nilainya akan digantikan, dengan tipe JobCategory
      */
-    public void setCategory(String category) {
+    public void setCategory(JobCategory category) {
         this.category = category;
     }
     
@@ -110,9 +112,16 @@ public class Job
     }
     
     /**
-     * printData tidak digunakan untuk apa-apa untuk saat ini.
+     * printData menampilkan property: ID pekerjaan, nama pekerjaan, nama perekrut, 
+     * lokasi kota perekrut, biaya pekerjaan, dan kategori pekerjaan.
      */
     public void printData() {
-        System.out.println(getName());
+        System.out.println("===================== JOB =====================");
+        System.out.println("ID: " + id);
+        System.out.println("Name: " + name);
+        System.out.println("Recruiter: " + recruiter.getName());
+        System.out.println("City: " + recruiter.getLocation().getCity());
+        System.out.println("Fee: " + fee);
+        System.out.println("Category: " + category);
     }
 }

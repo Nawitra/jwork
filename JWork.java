@@ -7,7 +7,7 @@ public class JWork
          * province = "Sumatera Selatan"
          * city = "Lubuklinggau"
          * description = "Kota lama"
-         */
+         
         Location location1 = new Location("Sumatera Selatan", "Lubuklinggau", "Kota lama");
         
         //Memanggil getter
@@ -26,7 +26,7 @@ public class JWork
          * email = "random@test.com"
          * phoneNumber = "1234567"
          * Location = location1
-         */
+         
         Recruiter recruiter1 = new Recruiter(1, "Random", "random@test.com", "1234567", location1);
         
         //Memanggil getter
@@ -45,7 +45,7 @@ public class JWork
          * name = "programmer"
          * category = "new_category"
          * recruiter = recruiter1
-         */
+         
         Job job1 = new Job(1, 100, "programmer", "new_category", recruiter1);
         
         //Memanggil getter
@@ -64,7 +64,7 @@ public class JWork
          * email = "person@test.com"
          * password = "personguys"
          * joinDate = "10 february"
-         */
+         
         Jobseeker jobseeker1 = new Jobseeker(1, "person", "person@test.com", "personguys", "10 february");
         
         //Memanggil getter
@@ -83,7 +83,7 @@ public class JWork
          * date = "10 february"
          * totalFee = 100
          * jobseeker = jobseeker1
-         */
+         
         Invoice invoice1 = new Invoice(1, 1, "10 february", 100, jobseeker1);
         
         //Memanggil getter
@@ -97,7 +97,7 @@ public class JWork
         
         /*
          * Post test
-         */
+         
         Location locationPT = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
         Recruiter recruiterPT = new Recruiter(2, "Vernando Wijaya Putra", "vernandowijayaputra@gmail.com", "087743031638", locationPT);
         Job jobPT = new Job(2, 350, "designer", "all_category", recruiterPT);
@@ -109,5 +109,45 @@ public class JWork
         System.out.println(recruiterPT.getName());
         
         jobPT.printData();
+        */
+       
+        /*
+         * Modul 3
+         */
+        
+        /* 
+         * Ini merupakan bagian kode untuk menunjukkan JobCategory
+         * 
+        for (JobCategory jobCategory: JobCategory.values()) {
+            System.out.println(jobCategory);
+        }
+        
+        System.out.println(JobCategory.WebDeveloper);
+        System.out.println(JobCategory.FrontEnd);
+        System.out.println(JobCategory.BackEnd);
+        System.out.println(JobCategory.UI);
+        System.out.println(JobCategory.UX);
+        System.out.println(JobCategory.Devops);
+        System.out.println(JobCategory.DataScientist);
+        System.out.println(JobCategory.DataAnalyst);        
+        System.out.println(JobCategory.random);
+        */
+       
+        /*
+         * Ini merupakan bagian kode untuk menunjukkan PaymentType
+         
+        for (PaymentType paymentType: PaymentType.values()) {
+            System.out.println(paymentType);
+        }
+        
+        System.out.println(PaymentType.BankPayment);
+        System.out.println(PaymentType.EwalletPayment);        
+        System.out.println(PaymentType.random);
+        */
+       
+        Location locationCS3 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+        Recruiter recruiterCS3 = new Recruiter(8, "Vernando Wijaya Putra", "vernandowijayaputra@gmail.com", "08777123556", locationCS3);
+        Job jobCS3 = new Job(9, 50000, "designer", recruiterCS3, JobCategory.UI);
+        jobCS3.printData();
     }
 }
