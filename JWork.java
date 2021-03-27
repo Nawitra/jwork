@@ -143,11 +143,39 @@ public class JWork
         System.out.println(PaymentType.BankPayment);
         System.out.println(PaymentType.EwalletPayment);        
         System.out.println(PaymentType.random);
-        */
        
+        
         Location locationCS3 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
         Recruiter recruiterCS3 = new Recruiter(8, "Vernando Wijaya Putra", "vernandowijayaputra@gmail.com", "08777123556", locationCS3);
         Job jobCS3 = new Job(9, 50000, "designer", recruiterCS3, JobCategory.UI);
         jobCS3.printData();
+        */
+       
+        /*
+         * Post test modul 3
+         */
+        
+        /*
+         * Tugas 1
+         
+        for (InvoiceStatus status: InvoiceStatus.values()) {
+            System.out.println(status);
+        }
+        
+        System.out.println(InvoiceStatus.OnGoing);
+        System.out.println(InvoiceStatus.Finished);
+        System.out.println(InvoiceStatus.Cancelled);
+        //System.out.println(InvoiceStatus.random);
+        */
+       
+        /*
+         * Tugas 4
+         */
+        Location locationCS3 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+        Recruiter recruiterCS3 = new Recruiter(8, "Vernando Wijaya Putra", "vernandowijayaputra@gmail.com", "08777123556", locationCS3);
+        Job jobPT3 = new Job(10, 10000, "programmer", recruiterCS3, JobCategory.WebDeveloper);
+        Jobseeker jobseekerPT3 = new Jobseeker(3, "Job Seeker", "jobseeker21@test.com", "personhereis", "27 March");
+        Invoice invoicePT3 = new Invoice(1, jobPT3.getId(), "27 / 3 / 2021", jobPT3.getFee(), jobseekerPT3, PaymentType.BankPayment, InvoiceStatus.OnGoing);
+        invoicePT3.printData();
     }
 }

@@ -9,13 +9,17 @@ public class Invoice
     private int id, idJob, totalFee;
     private String date;
     private Jobseeker jobseeker;
+    private PaymentType paymentType;
+    private InvoiceStatus status;
     
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker) {
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status) {
         this.id = id;
         this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
     
     /**
@@ -55,12 +59,30 @@ public class Invoice
     }
     
     /**
-     * getId untuk mendapatkan nilai dari objek jobseeker
+     * getJobseeker untuk mendapatkan nilai dari objek jobseeker
      *
      * @return nilai dari objek jobseeker
      */
     public Jobseeker getJobseeker() {
         return this.jobseeker;   
+    }
+    
+    /**
+     * getPaymentType untuk mendapatkan nilai dari objek paymentType
+     *
+     * @return nilai dari objek paymentType
+     */
+    public PaymentType getPaymentType() {
+        return this.paymentType;   
+    }
+    
+    /**
+     * getInvoiceStatus untuk mendapatkan nilai dari objek invoiceStatus
+     *
+     * @return nilai dari objek status
+     */
+    public InvoiceStatus getInvoiceStatus() {
+        return this.status;   
     }
     
     /**
@@ -109,9 +131,33 @@ public class Invoice
     }
     
     /**
-     * printData tidak digunakan untuk apa-apa untuk saat ini.
+     * setPaymentType untuk menggantikan nilai dari property pada objek paymentType
+     * 
+     * @param paymentType, property yang nilainya akan digantikan, dengan tipe PaymentType
+     */
+    public void setPaymentType(PaymentType paymentType) {
+        this.paymentType = paymentType;
+    }
+    
+    /**
+     * setInvoiceStatus untuk menggantikan nilai dari property pada objek invoiceStatus
+     * 
+     * @param status, property yang nilainya akan digantikan, dengan tipe status
+     */
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+        this.status = status;
+    }
+    
+    /**
+     * printData digunakan untuk menampilkan berbagai parameter
      */
     public void printData() {
-        System.out.println(getTotalFee());
+        System.out.println("===================== Invoice =====================");
+        System.out.println("ID: " + id);
+        System.out.println("ID Job: " + idJob);
+        System.out.println("Date: " + date);
+        System.out.println("Seeker: " + jobseeker.getName());
+        System.out.println("Fee: " + totalFee);
+        System.out.println("Status: " + status);
     }
 }
