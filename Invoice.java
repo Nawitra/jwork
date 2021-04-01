@@ -4,22 +4,21 @@
  * @author Vernando Wijaya Putra
  * @version 2021.03.18
  */
-public class Invoice
+public abstract class Invoice
 {
-    private int id, idJob, totalFee;
+    protected int totalFee;
+    private int id;
     private String date;
     private Jobseeker jobseeker;
-    private PaymentType paymentType;
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
+    private Job job;
     
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status) {
+    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
         this.id = id;
-        this.idJob = idJob;
+        this.job = job;
         this.date = date;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     
     /**
@@ -28,25 +27,16 @@ public class Invoice
      * @return nilai dari property id
      */
     public int getId() {
-        return this.id;
+        return id;
     }
-    
-    /**
-     * getIdJob untuk mendapatkan nilai dari property idJob
-     *
-     * @return nilai dari property idJob
-     */
-    public int getIdJob() {
-        return this.idJob;
-    }
-    
+
     /**
      * getId untuk mendapatkan nilai dari property date
      *
      * @return nilai dari property date
      */
     public String getDate() {
-        return this.date;
+        return date;
     }
     
     /**
@@ -55,7 +45,7 @@ public class Invoice
      * @return nilai dari property totalFee
      */
     public int getTotalFee() {
-        return this.totalFee;
+        return totalFee;
     }
     
     /**
@@ -64,7 +54,7 @@ public class Invoice
      * @return nilai dari objek jobseeker
      */
     public Jobseeker getJobseeker() {
-        return this.jobseeker;   
+        return jobseeker;   
     }
     
     /**
@@ -72,8 +62,15 @@ public class Invoice
      *
      * @return nilai dari objek paymentType
      */
-    public PaymentType getPaymentType() {
-        return this.paymentType;   
+    public abstract PaymentType getPaymentType();
+
+    /**
+     * getJob untuk mendapatkan nilai dari objek job
+     *
+     * @return nilai dari objek job
+     */
+    public Job getJob() {
+        return job;   
     }
     
     /**
@@ -82,7 +79,7 @@ public class Invoice
      * @return nilai dari objek status
      */
     public InvoiceStatus getInvoiceStatus() {
-        return this.status;   
+        return invoiceStatus;   
     }
     
     /**
@@ -93,15 +90,16 @@ public class Invoice
     public void setId(int id) {
         this.id = id;
     }
-    
+
     /**
-     * setId untuk menggantikan nilai dari property idJob
+     * setJob untuk menggantikan nilai dari property pada objek Job
      * 
-     * @param idJob, property yang nilainya akan digantikan, dengan tipe int
+     * @param job, property yang nilainya akan digantikan, dengan tipe job
      */
-    public void setIdJobs(int idJob) {
-        this.idJob = idJob; 
+    public void setJob(Job job) {
+        this.job = job;
     }
+
     
     /**
      * setDate untuk menggantikan nilai dari property date
@@ -117,9 +115,7 @@ public class Invoice
      * 
      * @param totalFee, property yang nilainya akan digantikan, dengan tipe int
      */
-    public void setTotalFee(int totalFee) {
-        this.totalFee = totalFee;
-    }
+    public abstract void setTotalFee();
 
     /**
      * setJobseeker untuk menggantikan nilai dari property pada objek jobseeker
@@ -131,33 +127,16 @@ public class Invoice
     }
     
     /**
-     * setPaymentType untuk menggantikan nilai dari property pada objek paymentType
-     * 
-     * @param paymentType, property yang nilainya akan digantikan, dengan tipe PaymentType
-     */
-    public void setPaymentType(PaymentType paymentType) {
-        this.paymentType = paymentType;
-    }
-    
-    /**
      * setInvoiceStatus untuk menggantikan nilai dari property pada objek invoiceStatus
      * 
      * @param status, property yang nilainya akan digantikan, dengan tipe status
      */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
     
     /**
      * printData digunakan untuk menampilkan berbagai parameter
      */
-    public void printData() {
-        System.out.println("===================== Invoice =====================");
-        System.out.println("ID: " + id);
-        System.out.println("ID Job: " + idJob);
-        System.out.println("Date: " + date);
-        System.out.println("Seeker: " + jobseeker.getName());
-        System.out.println("Fee: " + totalFee);
-        System.out.println("Status: " + status);
-    }
+    public abstract void printData();
 }

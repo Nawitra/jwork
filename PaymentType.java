@@ -7,16 +7,24 @@
  */
 public enum PaymentType
 {
-    BankPayment, EwalletPayment;
+    BankPayment("BankPayment"), 
+    EwalletPayment("E-Wallet payment");
     
+    private String payment;
+    
+    private PaymentType(String payment) {
+        this.payment = payment;
+    }
+    
+    @Override
     public String toString() {
-        switch(this) {
-            case BankPayment:
-                return "BankPayment";
-            case EwalletPayment:
-                return "E-Wallet payment";
-            default:
-                return null;
-        }
+        return payment;   
+    }
+    
+    public static void main(String[] args) {
+        PaymentType bank = PaymentType.BankPayment;
+        PaymentType ewallet = PaymentType.EwalletPayment;
+        System.out.println(bank);
+        System.out.println(ewallet);
     }
 }

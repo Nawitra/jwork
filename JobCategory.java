@@ -7,29 +7,45 @@
  */
 public enum JobCategory
 {
-    WebDeveloper, FrontEnd, BackEnd, UI, UX, Devops, DataScientist, DataAnalyst;
+    WebDeveloper("WebDeveloper"), 
+    FrontEnd("FrontEnd"), 
+    BackEnd("BackEnd"), 
+    UI("UI"), 
+    UX("UX"), 
+    Devops("Devops"), 
+    DataScientist("DataScientist"), 
+    DataAnalyst("DataAnalyst");
     
+    private String category;
+    
+    private JobCategory(String category) {
+        this.category = category;    
+    }
+    
+    @Override
     public String toString() {
-        switch(this) {
-            case WebDeveloper:
-                return "WebDeveloper";
-            case FrontEnd:
-                return "FrontEnd";
-            case BackEnd:
-                return "BackEnd";
-            case UI:
-                return "UI";
-            case UX:
-                return "UX";
-            case Devops:
-                return "Devops";
-            case DataScientist:
-                return "DataScientist";
-            case DataAnalyst:
-                return "DataAnalyst";
-            default:
-                return null;
-        }
+        return category;    
+    }
+    
+    //pembuktian
+    public static void main(String[] args) {
+        JobCategory webdev = JobCategory.WebDeveloper;
+        JobCategory frontend = JobCategory.FrontEnd;
+        JobCategory backend = JobCategory.BackEnd;
+        JobCategory ui = JobCategory.UI;
+        JobCategory ux = JobCategory.UX;
+        JobCategory devops = JobCategory.Devops;
+        JobCategory datasci = JobCategory.DataScientist;
+        JobCategory danalyst = JobCategory.DataAnalyst;
+        
+        System.out.println(webdev);
+        System.out.println(frontend);
+        System.out.println(backend);
+        System.out.println(ui);
+        System.out.println(ux);
+        System.out.println(devops);
+        System.out.println(datasci);
+        System.out.println(danalyst);
     }
 }
 

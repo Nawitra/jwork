@@ -1,6 +1,10 @@
 #BlueJ class context
 comment0.target=PaymentType
 comment0.text=\r\n\ Enum\ yang\ menampung\ tipe-tipe\ pembayaran\r\n\r\n\ @author\ Vernando\ Wijaya\ Putra\r\n\ @version\ 2021.3.25\r\n
-comment1.params=
-comment1.target=java.lang.String\ toString()
-numComments=2
+comment1.params=payment
+comment1.target=PaymentType(java.lang.String)
+comment2.params=
+comment2.target=java.lang.String\ toString()
+comment3.params=args
+comment3.target=void\ main(java.lang.String[])
+numComments=4
