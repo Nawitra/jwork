@@ -34,7 +34,7 @@ public class EwalletPayment extends Invoice
     
     @Override
     public void setTotalFee() {
-        if (bonus != null && (bonus.getActive() == true) && (getJob().getFee() > bonus.getMinTotalFee())) {
+        if (bonus != null && (bonus.getActive() == true) && (totalFee > bonus.getMinTotalFee())) {
             super.totalFee = getJob().getFee() + bonus.getExtraFee();
         } else {
             super.totalFee = getJob().getFee();
@@ -48,10 +48,10 @@ public class EwalletPayment extends Invoice
         System.out.println("Job: " + getJob().getName());
         System.out.println("Date: " + getDate());
         System.out.println("Job Seeker: " + getJobseeker().getName());
-        if (bonus != null && (bonus.getActive() == true) && (getJob().getFee() > bonus.getMinTotalFee())) {      
+        if (bonus != null && (bonus.getActive() == true) && (totalFee > bonus.getMinTotalFee())) {      
+            setTotalFee();
             System.out.println("Referral Code: " + bonus.getReferralCode());
         }
-        setTotalFee();
         System.out.println("Total Fee: " + super.totalFee);
         System.out.println("Status: " + getInvoiceStatus());
         System.out.println("Payment Type: " + PAYMENT_TYPE);

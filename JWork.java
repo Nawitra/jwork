@@ -18,6 +18,10 @@ public class JWork
         EwalletPayment wallet2 = new EwalletPayment(2, jobCS4, "11 August 2021", jobseekerCS4, bonusCS42, InvoiceStatus.Finished);
         EwalletPayment wallet3 = new EwalletPayment(3, jobCS4, "12 August 2021", jobseekerCS4, bonusCS41, InvoiceStatus.Finished);
         EwalletPayment wallet4 = new EwalletPayment(4, jobCS4, "15 August 2021", jobseekerCS4, bonusCS42, InvoiceStatus.Finished);
+        wallet1.setTotalFee();
+        wallet2.setTotalFee();
+        wallet3.setTotalFee();
+        wallet4.setTotalFee();
         wallet1.printData();
         wallet2.printData();
         wallet3.printData();
