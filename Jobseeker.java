@@ -22,7 +22,7 @@ public class Jobseeker
         this.email = email;
         setEmail(email);
         setPassword(password);
-        this.joinDate = Calendar.getInstance();
+        this.joinDate = joinDate;
     }
     
     public Jobseeker(int id, String name, String email, String password, int year, int month, int dayOfMonth) {
