@@ -112,16 +112,9 @@ public class Job
     }
     
     /**
-     * printData menampilkan property: ID pekerjaan, nama pekerjaan, nama perekrut, 
-     * lokasi kota perekrut, biaya pekerjaan, dan kategori pekerjaan.
+     * toString() mengembalikan nilai
      */
-    public void printData() {
-        System.out.println("===================== JOB =====================");
-        System.out.println("ID: " + id);
-        System.out.println("Name: " + name);
-        System.out.println("Recruiter: " + recruiter.getName());
-        System.out.println("City: " + recruiter.getLocation().getCity());
-        System.out.println("Fee: " + fee);
-        System.out.println("Category: " + category);
+    public String toString() {
+        return "Id = " + getId() + "Name = " + getName() + "Recruiter = " + getRecruiter() +  "Fee = " + "City = " + getRecruiter().getLocation().getCity() + getFee() + "Category" + getCategory();
     }
 }

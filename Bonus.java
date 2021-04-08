@@ -112,12 +112,8 @@ public class Bonus
     /**
      * printData digunakan untuk menampilkan berbagai parameter
      */
-    public void printData() {
-        System.out.println("ID: " + id);
-        System.out.println("Extra Fee: " + extraFee);
-        System.out.println("Min Total Fee: " + minTotalFee);
-        System.out.println("Referral Code: " + referralCode);
-        System.out.println("Active: " + active);
+    public String toString() {
+        return "Id = " + getId() + "Referral Code = " + getReferralCode() + "Extra Fee = " + getExtraFee() + "Min Total Fee = " + getMinTotalFee() + "Active Status" + getActive();
     };
 
 }

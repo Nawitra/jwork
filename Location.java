@@ -69,9 +69,9 @@ public class Location
     }
     
     /**
-     * printData untuk menampilkan nilai dari property province
+     * toString() mengembalikan nilai
      */
-    public void printData() {
-        System.out.println(getProvince());
+    public String toString() {
+        return "Province = " + getProvince() + "City = " + getCity() + "Description = " + getDescription();
     }
 }

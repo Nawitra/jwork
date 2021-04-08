@@ -1,6 +1,6 @@
 
 /**
- * Write a description of class EwalletPayment here.
+ * Class yang menampung EwalletPayment sebagai bentuk payment type
  *
  * @author Vernando Wijaya Putra
  * @version 2021.1.4

@@ -109,9 +109,9 @@ public class Recruiter
     }
     
     /**
-     * printData untuk menampilkan nilai dari property name
+     * toString() mengembalikan nilai
      */
-    public void printData() {
-        System.out.println(getName());
+    public String toString() {
+        return "Id = " + getId() + "Name = " + getName() + "Phone Number = " + getPhoneNumber() + "Location = " + getLocation();
     }
 }

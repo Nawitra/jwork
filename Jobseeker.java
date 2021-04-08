@@ -1,3 +1,8 @@
+import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.GregorianCalendar;
+import java.util.regex.*;  
+
 /**
  * Class yang menangani detail dari pencari pekerjaan
  *
@@ -7,14 +12,32 @@
 public class Jobseeker
 {
     private int id = 0;
-    private String name = "", email = "", password = "", joinDate = "";
+    private String name = "", email = "", password = "";
     
-    public Jobseeker(int id, String name, String email, String password, String joinDate){
+    public Calendar joinDate;
+    
+    public Jobseeker(int id, String name, String email, String password, Calendar joinDate){
         this.id = id;
         this.name = name;
         this.email = email;
-        this.password = password;
-        this.joinDate = joinDate;
+        setEmail(email);
+        setPassword(password);
+        this.joinDate = Calendar.getInstance();
+    }
+    
+    public Jobseeker(int id, String name, String email, String password, int year, int month, int dayOfMonth) {
+        this.id = id;
+        this.name = name;
+        setEmail(email);
+        setPassword(password);
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+    }
+    
+    public Jobseeker(int id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        setEmail(email);
+        setPassword(password);
     }
     
     /**
@@ -58,7 +81,7 @@ public class Jobseeker
      *
      * @return nilai dari property joinDate
      */
-    public String getJoinDate() {
+    public Calendar getJoinDate() {
         return joinDate;
     }
 
@@ -86,7 +109,14 @@ public class Jobseeker
      * @param email, property yang nilainya akan digantikan, dengan tipe String
      */
     public void setEmail(String email) {
-        this.email = email;
+        String regex = "^[^.][a-zA-Z0-9&*_~]+([.{1}]?[a-z]+)+@[^-][a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        if(matcher.matches()) {
+            this.email = email;    
+        } else {
+            this.email = "";    
+        }
     }
     
     /**
@@ -95,7 +125,14 @@ public class Jobseeker
      * @param password, property yang nilainya akan digantikan, dengan tipe String
      */
     public void setPassword(String password) {
-        this.password = password;
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        if(matcher.matches()) {
+            this.password = password;    
+        } else {
+            this.password = "";    
+        }
     }
 
     /**
@@ -103,15 +140,33 @@ public class Jobseeker
      * 
      * @param joinDate, property yang nilainya akan digantikan, dengan tipe String
      */
-    public void setJoinDate(String joinDate) {
+    public void setJoinDate(Calendar joinDate) {
         this.joinDate = joinDate;
     }
     
     /**
-     * printData untuk menampilkan nilai dari property name
+     * setJoinDate untuk menggantikan nilai dari property joinDate
+     * 
+     * @param year, month, dan dayOfMonth
      */
-    public void printData() {
-        System.out.println(getName());
+    public void setJoinDate(int year, int month, int dayOfMonth) {
+        this.joinDate.set(Calendar.YEAR, year);
+        this.joinDate.set(Calendar.MONTH, month+1);
+        this.joinDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
+    }
+    
+    /**
+     * toString() untuk melakukan return
+     */
+    @Override
+    public String toString() {
+        if(joinDate == null) {
+            return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = " + getEmail() + "\nPassword = " + getPassword() + "\nJoin Date = ";
+        } else {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy"); 
+            String formattedDate = dateFormat.format(getJoinDate().getTime());
+            return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = " + getEmail() + "\nPassword = " + getPassword() + "\nJoin Date = " + formattedDate;
+        }
     }
     
 }
