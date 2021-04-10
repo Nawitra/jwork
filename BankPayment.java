@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 
 /**
  * Class yang menampung BankPayment sebagai payment type
@@ -64,8 +65,16 @@ public class BankPayment extends Invoice
      */
     @Override
     public String toString() {
-        return "===================== Invoice =====================\n" + "ID: " + getId() + "\nJob: " + getJob().getName() + "\nDate: " + getDate() +
-                "\nJobseeker: " + getJobseeker().getName() + "\nAdmin Fee: " + adminFee + "\nTotal Fee: " + super.totalFee + "\nStatus: " + getInvoiceStatus() +
-                "\nPayment Type: " + PAYMENT_TYPE;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        String date = dateFormat.format(getDate().getTime());
+        if (adminFee != 0)
+        {
+            return ("===================== Invoice =====================\n" + "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                + getJobseeker().getName() +  "Admin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }else
+        {
+            return ("===================== Invoice =====================\n" + "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + date + "\nJob Seeker = "
+                + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE);
+        }
     }
 }

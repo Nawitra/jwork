@@ -31,6 +31,8 @@ public class JWork
         Jobseeker jobseekerPT5 = new Jobseeker(1, "Job Seek", "jobseeker@test.com", "Personthereafter1", new GregorianCalendar(2021,8,12));
         BankPayment bankPT5 = new BankPayment(1, jobPT5, jobseekerPT5, InvoiceStatus.Finished);
         EwalletPayment ewalletPT5 = new EwalletPayment(2, jobPT5, jobseekerPT5, InvoiceStatus.Finished);
+        bankPT5.setDate(new GregorianCalendar(2021, 8, 12));
+        ewalletPT5.setDate(new GregorianCalendar(2021, 8, 12));
         bankPT5.setTotalFee();
         ewalletPT5.setTotalFee();
         System.out.println(bankPT5.toString() + "\n");
