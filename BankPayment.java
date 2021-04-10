@@ -10,12 +10,12 @@ public class BankPayment extends Invoice
     private static final PaymentType PAYMENT_TYPE = PaymentType.BankPayment;
     private int adminFee;
     
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
-        super(id, job, date, jobseeker, invoiceStatus);    
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
+        super(id, job, jobseeker, invoiceStatus);    
     }
     
-    public BankPayment(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee) {
-        super(id, job, date, jobseeker, invoiceStatus);
+    public BankPayment(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus, int adminFee) {
+        super(id, job, jobseeker, invoiceStatus);
         this.adminFee = adminFee;
     }
     
@@ -63,15 +63,9 @@ public class BankPayment extends Invoice
      * printData untuk menampilkan nilai dari berbagai property
      */
     @Override
-    public void printData() {
-        System.out.println("===================== Invoice =====================");
-        System.out.println("ID: " + getId());
-        System.out.println("Job: " + getJob().getName());
-        System.out.println("Date: " + getDate());
-        System.out.println("Jobseeker: " + getJobseeker().getName());
-        System.out.println("Admin Fee: " + adminFee);
-        System.out.println("Total Fee: " + super.totalFee);
-        System.out.println("Status: " + getInvoiceStatus());
-        System.out.println("Payment Type: " + PAYMENT_TYPE);
+    public String toString() {
+        return "===================== Invoice =====================\n" + "ID: " + getId() + "\nJob: " + getJob().getName() + "\nDate: " + getDate() +
+                "\nJobseeker: " + getJobseeker().getName() + "\nAdmin Fee: " + adminFee + "\nTotal Fee: " + super.totalFee + "\nStatus: " + getInvoiceStatus() +
+                "\nPayment Type: " + PAYMENT_TYPE;
     }
 }

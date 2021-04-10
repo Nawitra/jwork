@@ -1,3 +1,6 @@
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+
 /**
  * Class yang menangani detail dari informasi tagihan
  *
@@ -8,15 +11,15 @@ public abstract class Invoice
 {
     protected int totalFee;
     private int id;
-    private String date;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
     private Job job;
+
+    private Calendar date;
     
-    public Invoice(int id, Job job, String date, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
+    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
         this.id = id;
         this.job = job;
-        this.date = date;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
     }
@@ -35,7 +38,7 @@ public abstract class Invoice
      *
      * @return nilai dari property date
      */
-    public String getDate() {
+    public Calendar getDate() {
         return date;
     }
     
@@ -106,8 +109,17 @@ public abstract class Invoice
      * 
      * @param date, property yang nilainya akan digantikan, dengan tipe String
      */
-    public void setDate(String date){
-        this.date = date;
+    public void setDate(Calendar date){
+        this.date = Calendar.getInstance();
+    }
+    
+    /**
+     * setDate untuk menggantikan nilai year, month, dan dayOfMonth
+     * 
+     * @param year, month, dan dayOfMonth
+     */
+    public void setDate(int year, int month, int dayOfMonth){
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
     }
 
     /**
@@ -136,7 +148,7 @@ public abstract class Invoice
     }
     
     /**
-     * printData digunakan untuk menampilkan berbagai parameter
+     * toString digunakan untuk menampilkan berbagai parameter
      */
-    public abstract void printData();
+    public abstract String toString();
 }
