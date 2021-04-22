@@ -30,25 +30,23 @@ public class DatabaseJob
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
+        ArrayList<Job> dummy = new ArrayList<Job>();
         for(int i = 0; i < JOB_DATABASE.size(); i++) {
             if(JOB_DATABASE.get(i).getRecruiter().getId() == recruiterId) {
-                ArrayList<Job> dummy = new ArrayList<Job>();
                 dummy.add(JOB_DATABASE.get(i));
-                return dummy;
             }
         }
-        return null;
+        return dummy;
     }
 
     public static ArrayList<Job> getJobByCategory(JobCategory category) {
+        ArrayList<Job> dummy = new ArrayList<Job>();
         for(int i = 0; i < JOB_DATABASE.size(); i++) {
             if(JOB_DATABASE.get(i).getCategory() == category) {
-                ArrayList<Job> dummy = new ArrayList<Job>();
                 dummy.add(JOB_DATABASE.get(i));
-                return dummy;
             }
         }
-        return null;
+        return dummy;
     }
 
     public static boolean addJob(Job job) {
