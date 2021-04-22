@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
@@ -13,15 +14,14 @@ public abstract class Invoice
     private int id;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
-    private Job job;
+    private ArrayList<Job> jobs;
 
     private Calendar date;
     
-    public Invoice(int id, Job job, Jobseeker jobseeker, InvoiceStatus invoiceStatus) {
+    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker) {
         this.id = id;
-        this.job = job;
+        this.jobs = jobs;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus;
     }
     
     /**
@@ -68,12 +68,12 @@ public abstract class Invoice
     public abstract PaymentType getPaymentType();
 
     /**
-     * getJob untuk mendapatkan nilai dari objek job
+     * getJobs untuk mendapatkan nilai dari objek jobs
      *
-     * @return nilai dari objek job
+     * @return nilai dari objek jobs
      */
-    public Job getJob() {
-        return job;   
+    public ArrayList<Job> getJobs() {
+        return jobs;
     }
     
     /**
@@ -95,12 +95,12 @@ public abstract class Invoice
     }
 
     /**
-     * setJob untuk menggantikan nilai dari property pada objek Job
+     * setJob untuk menggantikan nilai dari property pada objek Jobs
      * 
-     * @param job, property yang nilainya akan digantikan, dengan tipe job
+     * @param jobs, property yang nilainya akan digantikan, dengan tipe jobs
      */
-    public void setJob(Job job) {
-        this.job = job;
+    public void setJobs(ArrayList<Job> jobs) {
+        this.jobs = jobs;
     }
 
     

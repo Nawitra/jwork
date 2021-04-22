@@ -72,6 +72,6 @@ public class Location
      * toString() mengembalikan nilai
      */
     public String toString() {
-        return "Province = " + getProvince() + "City = " + getCity() + "Description = " + getDescription();
+        return "\nProvince = " + getProvince() + "\nCity = " + getCity() + "\nDescription = " + getDescription();
     }
 }

@@ -10,32 +10,39 @@ import java.util.GregorianCalendar;
 public class JWork
 {
     public static void main(String[] args) {
-       /*
-        * CS 5
-        *
-       Jobseeker jobseekerCS51 = new Jobseeker(1, "Job Seek", "jobsee ker@test.com", "personthereafter", new GregorianCalendar(2021,8,12));
-       Jobseeker jobseekerCS52 = new Jobseeker(2, "Job Seeker", "jobseeker@tester.com", "Personhere123", 2021,4,8);
-       Jobseeker jobseekerCS53 = new Jobseeker(3, "Job Seekest", "jobseeker@testerest.com", "personthere873");
-       System.out.println(jobseekerCS51.toString() + "\n");
-       System.out.println(jobseekerCS52.toString() + "\n");
-       System.out.println(jobseekerCS53.toString() + "\n");
-       
-       jobseekerCS51.setEmail("jobseeker.probably@test.ac.id");
-       jobseekerCS51.setPassword("Randomperson1");
-       System.out.println(jobseekerCS51.toString());
-        */
-       
-        Location locationPT5 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
-        Recruiter recruiterPT5 = new Recruiter(8, "Vernando Wijaya Putra", "vernandowijayaputra@gmail.com", "08777123556", locationPT5);
-        Job jobPT5 = new Job(9, 50000, "designer", recruiterPT5, JobCategory.UI);
-        Jobseeker jobseekerPT5 = new Jobseeker(1, "Job Seek", "jobseeker@test.com", "Personthereafter1", new GregorianCalendar(2021,8,12));
-        BankPayment bankPT5 = new BankPayment(1, jobPT5, jobseekerPT5, InvoiceStatus.Finished);
-        EwalletPayment ewalletPT5 = new EwalletPayment(2, jobPT5, jobseekerPT5, InvoiceStatus.Finished);
-        bankPT5.setDate(new GregorianCalendar(2021, 8, 12));
-        ewalletPT5.setDate(new GregorianCalendar(2021, 8, 12));
-        bankPT5.setTotalFee();
-        ewalletPT5.setTotalFee();
-        System.out.println(bankPT5.toString() + "\n");
-        System.out.println(ewalletPT5.toString());
+        /*
+        CS 6
+         */
+        Location locationCS6 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Well Played",
+                "wellplayed@test.com", "08123456789", locationCS6));
+
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Vernando Wijaya Putra",
+                "vernando.wijaya@ui.ac.id", "Randomperson123", 2021, 03, 4));
+
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Vernando Wijaya Putra",
+                "vernando.wijaya@ui.ac.id", "Randomperson456", 2021, 03, 4));
+
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Ilham Mulya Rafid",
+                "ilhamrafid@test.com", "Asisten123", 2021, 04, 4));
+
+        System.out.println(DatabaseJobseeker.getJobseekerById(1));
+        System.out.println("");
+        System.out.println(DatabaseJobseeker.getJobseekerById(2));
+        System.out.println("");
+        System.out.println(DatabaseJobseeker.getJobseekerById(3));
+        System.out.println("");
+
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 300000,
+                "Junior Web UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 400000,
+                "Professional Mobile UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 300000,
+                "React Developer", DatabaseRecruiter.getRecruiterById(1), JobCategory.WebDeveloper));
+
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.UI));
+        System.out.println("");
+        System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));
     }
 }

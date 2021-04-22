@@ -115,6 +115,8 @@ public class Job
      * toString() mengembalikan nilai
      */
     public String toString() {
-        return "Id = " + getId() + "Name = " + getName() + "Recruiter = " + getRecruiter() +  "Fee = " + "City = " + getRecruiter().getLocation().getCity() + getFee() + "Category" + getCategory();
+        return "Id = " + getId() + "\nName = " + getName() + "\nRecruiter = " + getRecruiter() +
+                "\nFee = " + getFee() + "\nCity = " + getRecruiter().getLocation().getCity()
+                + "\nCategory" + getCategory();
     }
 }

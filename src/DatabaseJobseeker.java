@@ -1,3 +1,6 @@
+import javax.sql.rowset.JoinRowSet;
+import java.util.ArrayList;
+
 /**
  * Class yang akan menampung list dari pencari pekerjaan.
  *
@@ -6,41 +9,45 @@
  */
 public class DatabaseJobseeker
 {
-    private static String[] listJobseeker;
+    private static final ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<Jobseeker>();
+    private static int lastId = 0;
 
-    /**
-     * addJobseeker untuk menambahkan pencari pekerjaan ke dalam listJobseeker
-     *
-     * @return false, sebagai nilai default
-     */
+    public static ArrayList<Jobseeker> getJobseekerDatabase() {
+        return JOBSEEKER_DATABASE;
+    }
+
+    public static int getLastId() {
+        return lastId;
+    }
+
+    public static Jobseeker getJobseekerById(int id) {
+        Jobseeker dummy = null;
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if(JOBSEEKER_DATABASE.get(i).getId() == id) {
+                dummy = JOBSEEKER_DATABASE.get(i);
+            }
+        }
+        return dummy;
+    }
+
     public static boolean addJobseeker(Jobseeker jobseeker) {
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if(JOBSEEKER_DATABASE.get(i).getEmail() == jobseeker.getEmail()) {
+                return false;
+            }
+        }
+        JOBSEEKER_DATABASE.add(jobseeker);
+        lastId = jobseeker.getId();
+        return true;
+    }
+
+    public static boolean removeJobseeker(int id) {
+        for(int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if(JOBSEEKER_DATABASE.get(i).getId() == id) {
+                JOBSEEKER_DATABASE.remove(i);
+                return true;
+            }
+        }
         return false;
-    }
-    
-    /**
-     * removeJobseeker untuk menghapus entry pencari pekerjaan dari listJobseeker
-     *
-     * @return false, sebagai nilai default
-     */
-    public static boolean removeJobseeker(Jobseeker jobseeker) {
-        return false;
-    }
-    
-    /**
-     * getJobseeker untuk mendapatkan nilai dari objek Jobseeker
-     *
-     * @return null, karena fungsi belum selesai
-     */
-    public static Jobseeker getJobseeker() {
-        return null;
-    }
-    
-    /**
-     * getListJobseeker untuk mendapatkan nilai dari property listJobseeker
-     *
-     * @return listJobseeker, list dari jobseeker
-     */
-    public static String[] getListJobseeker() {
-        return listJobseeker;   
     }
 }

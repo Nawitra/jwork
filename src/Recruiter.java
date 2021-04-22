@@ -112,6 +112,6 @@ public class Recruiter
      * toString() mengembalikan nilai
      */
     public String toString() {
-        return "Id = " + getId() + "Name = " + getName() + "Phone Number = " + getPhoneNumber() + "Location = " + getLocation();
+        return "\nId = " + getId() + "\nName = " + getName() + "\nPhone Number = " + getPhoneNumber() + "\nLocation = " + getLocation();
     }
 }

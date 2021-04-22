@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Class yang akan menampung list dari pekerjaan
  *
@@ -6,41 +8,64 @@
  */
 public class DatabaseJob
 {
-    private static String[] listJob;
+    private static final ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
+    private static int lastId = 0;
 
-    /**
-     * addJob untuk menambahkan pekerjaan ke dalam listJob
-     *
-     * @return false, sebagai nilai default
-     */
+    public static ArrayList<Job> getJobDatabase() {
+        return JOB_DATABASE;
+    }
+
+    public static int getLastId() {
+        return lastId;
+    }
+
+    public static Job getJobById(int id) {
+        Job dummy = null;
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getId() == id) {
+                dummy = JOB_DATABASE.get(i);
+            }
+        }
+        return dummy;
+    }
+
+    public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getRecruiter().getId() == recruiterId) {
+                ArrayList<Job> dummy = new ArrayList<Job>();
+                dummy.add(JOB_DATABASE.get(i));
+                return dummy;
+            }
+        }
+        return null;
+    }
+
+    public static ArrayList<Job> getJobByCategory(JobCategory category) {
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getCategory() == category) {
+                ArrayList<Job> dummy = new ArrayList<Job>();
+                dummy.add(JOB_DATABASE.get(i));
+                return dummy;
+            }
+        }
+        return null;
+    }
+
     public static boolean addJob(Job job) {
+        JOB_DATABASE.add(job);
+        lastId = job.getId();
+        return true;
+    }
+
+    public static boolean removeJob(int id) {
+        for(int i = 0; i < JOB_DATABASE.size(); i++) {
+            if(JOB_DATABASE.get(i).getId() == id) {
+                JOB_DATABASE.remove(i);
+                return true;
+            }
+        }
         return false;
     }
 
-    /**
-     * removeJob untuk menghapus entry pekerjaan dari listJob
-     *
-     * @return false, sebagai nilai default
-     */
-    public static boolean removeJob(Job job) {
-        return false;   
-    }
-    
-    /**
-     * getJob untuk mendapatkan nilai dari objek Job
-     *
-     * @return null, karena fungsi belum selesai
-     */
-    public static Job getJob() {
-        return null;   
-    }
-    
-    /**
-     * getListJob untuk mendapatkan nilai dari property listJob
-     *
-     * @return listJob, list dari pekerjaan
-     */
-    public static String[] getListJob() {
-        return listJob;
-    }
+
 }
