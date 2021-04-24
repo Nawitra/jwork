@@ -41,7 +41,7 @@ public class DatabaseBonus
 
     public static boolean addBonus(Bonus bonus) {
         for(int i = 0; i < BONUS_DATABASE.size(); i++) {
-            if(BONUS_DATABASE.get(i).getReferralCode() != "") {
+            if(BONUS_DATABASE.get(i).getReferralCode() == bonus.getReferralCode()) {
                 return false;
             }
         }

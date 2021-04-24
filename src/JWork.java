@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.GregorianCalendar;
 
 /**
@@ -12,7 +13,7 @@ public class JWork
     public static void main(String[] args) {
         /*
         CS 6
-         */
+
         Location locationCS6 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
 
         DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Well Played",
@@ -44,5 +45,21 @@ public class JWork
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.UI));
         System.out.println("");
         System.out.println(DatabaseJob.getJobByCategory(JobCategory.WebDeveloper));
+         */
+
+        /*
+        Post test modul 6
+         */
+        Location locationPT6 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+        DatabaseBonus.addBonus(new Bonus(1, "AX101", 10000, 5000, false));
+        DatabaseBonus.addBonus(new Bonus(2, "AX101", 10000, 5000, true));
+        System.out.println(DatabaseBonus.getBonusDatabase());
+
+        ArrayList<Job> job1 = new ArrayList<Job>();
+        ArrayList<Job> job2 = new ArrayList<Job>();
+
+
+
+
     }
 }

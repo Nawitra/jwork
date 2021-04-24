@@ -20,12 +20,13 @@ public class DatabaseRecruiter
     }
 
     public static Recruiter getRecruiterById(int id) {
+        Recruiter dummy = null;
         for(int i = 0; i < RECRUITER_DATABASE.size(); i++) {
             if(RECRUITER_DATABASE.get(i).getId() == id) {
-                return RECRUITER_DATABASE.get(i);
+                dummy = RECRUITER_DATABASE.get(i);
             }
         }
-        return null;
+        return dummy;
     }
 
     public static boolean addRecruiter(Recruiter recruiter) {
