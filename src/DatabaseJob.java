@@ -6,8 +6,7 @@ import java.util.ArrayList;
  * @author Vernando Wijaya Putra
  * @version 2021.03.18
  */
-public class DatabaseJob
-{
+public class DatabaseJob {
     private static final ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
     private static int lastId = 0;
 
@@ -19,20 +18,25 @@ public class DatabaseJob
         return lastId;
     }
 
-    public static Job getJobById(int id) {
+    public static Job getJobById(int id) throws JobNotFoundException {
         Job dummy = null;
-        for(int i = 0; i < JOB_DATABASE.size(); i++) {
-            if(JOB_DATABASE.get(i).getId() == id) {
-                dummy = JOB_DATABASE.get(i);
+        try {
+            for (int i = 0; i < JOB_DATABASE.size(); i++) {
+                if (JOB_DATABASE.get(i).getId() == id) {
+                    dummy = JOB_DATABASE.get(i);
+                    return dummy;
+                }
             }
+        } catch (Exception error) {
+            throw new JobNotFoundException(id);
         }
-        return dummy;
+        throw new JobNotFoundException(id);
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
         ArrayList<Job> dummy = new ArrayList<Job>();
-        for(int i = 0; i < JOB_DATABASE.size(); i++) {
-            if(JOB_DATABASE.get(i).getRecruiter().getId() == recruiterId) {
+        for (int i = 0; i < JOB_DATABASE.size(); i++) {
+            if (JOB_DATABASE.get(i).getRecruiter().getId() == recruiterId) {
                 dummy.add(JOB_DATABASE.get(i));
             }
         }
@@ -41,8 +45,8 @@ public class DatabaseJob
 
     public static ArrayList<Job> getJobByCategory(JobCategory category) {
         ArrayList<Job> dummy = new ArrayList<Job>();
-        for(int i = 0; i < JOB_DATABASE.size(); i++) {
-            if(JOB_DATABASE.get(i).getCategory() == category) {
+        for (int i = 0; i < JOB_DATABASE.size(); i++) {
+            if (JOB_DATABASE.get(i).getCategory() == category) {
                 dummy.add(JOB_DATABASE.get(i));
             }
         }
@@ -55,15 +59,17 @@ public class DatabaseJob
         return true;
     }
 
-    public static boolean removeJob(int id) {
-        for(int i = 0; i < JOB_DATABASE.size(); i++) {
-            if(JOB_DATABASE.get(i).getId() == id) {
-                JOB_DATABASE.remove(i);
-                return true;
+    public static boolean removeJob(int id) throws JobNotFoundException {
+        try {
+            for (int i = 0; i < JOB_DATABASE.size(); i++) {
+                if (JOB_DATABASE.get(i).getId() == id) {
+                    JOB_DATABASE.remove(i);
+                    return true;
+                }
             }
+        } catch (Exception error) {
+            throw new JobNotFoundException(id);
         }
-        return false;
+        throw new JobNotFoundException(id);
     }
-
-
 }

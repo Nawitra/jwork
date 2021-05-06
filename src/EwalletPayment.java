@@ -47,7 +47,7 @@ public class EwalletPayment extends Invoice
     
     @Override
     public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
         String date = dateFormat.format(getDate().getTime());
         for(int i = 0; i < getJobs().size(); i++) {
             if ((bonus != null) && (bonus.getActive() == true) && (getJobs().get(i).getFee() > bonus.getMinTotalFee()))

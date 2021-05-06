@@ -68,13 +68,13 @@ public class BankPayment extends Invoice
      */
     @Override
     public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-yyyy");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");
         String date = dateFormat.format(getDate().getTime());
         for(int i = 0; i < getJobs().size(); i++) {
             if (adminFee != 0)
             {
                 return ("===================== Invoice =====================\n" + "Id = " + getId() + "\nJob = " + getJobs().get(i).getName() + "\nDate = " + date + "\nJob Seeker = "
-                        + getJobseeker().getName() +  "Admin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE) + "\n";
+                        + getJobseeker().getName() +  "\nAdmin Fee = " + adminFee + "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE) + "\n";
             } else {
                 return ("===================== Invoice =====================\n" + "Id = " + getId() + "\nJob = " + getJobs().get(i).getName() + "\nDate = " + date + "\nJob Seeker = "
                         + getJobseeker().getName()+ "\nTotal Fee = " + getTotalFee() + "\nStatus = " + getInvoiceStatus() + "\nPayment = " + PAYMENT_TYPE) + "\n";

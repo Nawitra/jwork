@@ -151,7 +151,7 @@ public class Jobseeker
      */
     public void setJoinDate(int year, int month, int dayOfMonth) {
         this.joinDate.set(Calendar.YEAR, year);
-        this.joinDate.set(Calendar.MONTH, month+1);
+        this.joinDate.set(Calendar.MONTH, month-1);
         this.joinDate.set(Calendar.DAY_OF_MONTH, dayOfMonth);
     }
     

@@ -46,7 +46,6 @@ public class DatabaseInvoice {
         return true;
     }
 
-    //belom
     public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus){
         for(int i = 0; i < INVOICE_DATABASE.size(); i++) {
             if ((INVOICE_DATABASE.get(i).getId() == id) && (INVOICE_DATABASE.get(i).getInvoiceStatus() == InvoiceStatus.OnGoing)) {

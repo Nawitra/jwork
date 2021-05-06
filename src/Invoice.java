@@ -13,7 +13,7 @@ public abstract class Invoice
     protected int totalFee;
     private int id;
     private Jobseeker jobseeker;
-    private InvoiceStatus invoiceStatus;
+    private InvoiceStatus invoiceStatus = InvoiceStatus.OnGoing;
     private ArrayList<Job> jobs;
 
     private Calendar date;
@@ -22,6 +22,7 @@ public abstract class Invoice
         this.id = id;
         this.jobs = jobs;
         this.jobseeker = jobseeker;
+        this.date = Calendar.getInstance();
     }
     
     /**
@@ -110,7 +111,7 @@ public abstract class Invoice
      * @param date, property yang nilainya akan digantikan, dengan tipe String
      */
     public void setDate(Calendar date){
-        this.date = Calendar.getInstance();
+        this.date = date;
     }
     
     /**
