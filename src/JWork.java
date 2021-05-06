@@ -10,7 +10,7 @@ import java.util.GregorianCalendar;
 
 public class JWork
 {
-    public static void main(String[] args) throws EmailAlreadyExistsException, ReferralCodeAlreadyExistsException, RecruiterNotFoundException, BonusNotFoundException {
+    public static void main(String[] args) throws EmailAlreadyExistsException, ReferralCodeAlreadyExistsException, RecruiterNotFoundException, BonusNotFoundException, JobSeekerNotFoundException {
         /*
         CS Modul 7
          */
@@ -109,7 +109,31 @@ public class JWork
 
         System.out.println("\n===Bonus===");
         System.out.println(DatabaseBonus.getBonusDatabase());
+
+        Location locationCS7 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Well Played",
+                "wellplayed@test.com", "08123456789", locationCS7));
+
+        ArrayList<Job> job1 = new ArrayList<Job>();
+        job1.add(new Job(1, 300000,
+                "Junior Web UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+        job1.add(new Job(2, 4000,
+                "Dummy UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+        job1.add(new Job(3, 90000,
+                "Web Developer", DatabaseRecruiter.getRecruiterById(1), JobCategory.WebDeveloper));
+
+        Invoice invoice1 = new EwalletPayment(1, job1, DatabaseJobseeker.getJobseekerById(1), DatabaseBonus.getBonusById(1));
+        Invoice invoice2 = new EwalletPayment(2, job1, DatabaseJobseeker.getJobseekerById(2), DatabaseBonus.getBonusById(3));
+        Invoice invoice3 = new EwalletPayment(3, job1, DatabaseJobseeker.getJobseekerById(3), DatabaseBonus.getBonusById(4));
+
+        DatabaseInvoice.addInvoice(invoice1);
+        DatabaseInvoice.addInvoice(invoice2);
+        DatabaseInvoice.addInvoice(invoice3);
+
+        for (Invoice invoice : DatabaseInvoice.getInvoiceDatabase()){
+            new Thread(new FeeCalculator(invoice)).start();
+        }
     }
 
-    
+
 }
