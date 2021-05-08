@@ -8,12 +8,11 @@ import java.util.GregorianCalendar;
  * @version 2021.1.4
  */
 
-public class JWork
-{
-    public static void main(String[] args) throws EmailAlreadyExistsException, ReferralCodeAlreadyExistsException, RecruiterNotFoundException, BonusNotFoundException, JobSeekerNotFoundException {
+public class JWork {
+    public static void main(String[] args) throws EmailAlreadyExistsException, ReferralCodeAlreadyExistsException, RecruiterNotFoundException, BonusNotFoundException, JobSeekerNotFoundException, OngoingInvoiceAlreadyExistsException {
         /*
         CS Modul 7
-         */
+
 
         //4 objek jobseeker baru
         try {
@@ -135,5 +134,66 @@ public class JWork
         }
     }
 
+    */
 
+        /*
+        Post test modul 7
+         */
+
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Vernando Wijaya Putra",
+                    "vernando.wijaya@ui.ac.id", "Randomperson123", 2021, 5, 4));
+        } catch (EmailAlreadyExistsException error) {
+            System.out.println(error.getMessage());
+        }
+
+        try {
+            DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Randomguy123",
+                    "randood@test.com", "Person12kdm", 2021, 5, 4));
+        } catch (EmailAlreadyExistsException error) {
+            System.out.println(error.getMessage());
+        }
+
+        try {
+            DatabaseBonus.addBonus(new Bonus(1, "BX101", 35000, 5000, true));
+        } catch (ReferralCodeAlreadyExistsException error) {
+            System.out.println(error.getMessage());
+        }
+
+        try {
+            DatabaseBonus.addBonus(new Bonus(2, "CX101", 90000, 5000, true));
+        } catch (ReferralCodeAlreadyExistsException error) {
+            System.out.println(error.getMessage());
+        }
+
+        Location locationPT7 = new Location("Sumatera Selatan", "Lubuklinggau", "Tempat lahir");
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Well Played",
+                "wellplayed@test.com", "08123456789", locationPT7));
+
+        ArrayList<Job> job1 = new ArrayList<Job>();
+        job1.add(new Job(1, 300000,
+                "Junior Web UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+        job1.add(new Job(2, 4000,
+                "Dummy UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(1, job1, DatabaseJobseeker.getJobseekerById(1), DatabaseBonus.getBonusById(1)));
+        } catch (OngoingInvoiceAlreadyExistsException error) {
+            System.out.println(error.getMessage());
+        }
+
+        try {
+            DatabaseInvoice.addInvoice(new EwalletPayment(2, job1, DatabaseJobseeker.getJobseekerById(2), DatabaseBonus.getBonusById(2)));
+        } catch (OngoingInvoiceAlreadyExistsException error) {
+            System.out.println(error.getMessage());
+        }
+
+        try {
+            DatabaseInvoice.getInvoiceById(2);
+        } catch (InvoiceNotFoundException error) {
+            System.out.println(error.getMessage());
+        }
+
+        System.out.println("\n" + DatabaseInvoice.getInvoiceDatabase());
+    }
 }
