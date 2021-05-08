@@ -2,7 +2,7 @@ public class OngoingInvoiceAlreadyExistsException extends Exception {
     private Invoice invoice_error;
 
     public OngoingInvoiceAlreadyExistsException (Invoice invoice_input) {
-        super("Invoice ID: ");
+        super("Ongoing Invoice ");
         invoice_error = invoice_input;
     }
 

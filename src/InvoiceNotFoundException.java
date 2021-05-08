@@ -2,7 +2,7 @@ public class InvoiceNotFoundException extends Exception {
     private int invoice_error;
 
     public InvoiceNotFoundException(int invoice_input) {
-        super("Ongoing Invoice");
+        super("Invoice ID: ");
         invoice_error = invoice_input;
     }
 
