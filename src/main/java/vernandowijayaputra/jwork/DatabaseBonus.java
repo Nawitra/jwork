@@ -38,11 +38,11 @@ public class DatabaseBonus {
     public static Bonus getBonusByReferralCode(String referralCode) {
         Bonus dummy = null;
         for (int i = 0; i < BONUS_DATABASE.size(); i++) {
-            if (BONUS_DATABASE.get(i).getReferralCode() == referralCode) {
+            if (BONUS_DATABASE.get(i).getReferralCode().equals(referralCode)) {
                 dummy = BONUS_DATABASE.get(i);
             }
         }
-        return null;
+        return dummy;
     }
 
     public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException {
