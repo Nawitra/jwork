@@ -13,7 +13,29 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JWork {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws RecruiterNotFoundException {
+        Location location1 =
+                new Location("Sumatera Selatan", "Lubuklinggau", "Lokasi pertama");
+        Location location2 =
+                new Location("Jawa Tengah", "Purworejo", "Lokasi kedua");
+        Location location3 =
+                new Location("Sumatera Barat", "Padang", "Lokasi ketiga");
+
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Well Played",
+                "wellplayed@test.com", "08123456789", location1));
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "Random Guy",
+                "randomguy@test.com", "08771856789", location2));
+        DatabaseRecruiter.addRecruiter(new Recruiter(DatabaseRecruiter.getLastId() + 1, "John Doe",
+                "johndoe@test.com", "08771856123", location3));
+
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 300000,
+                "Junior Web UI Designer", DatabaseRecruiter.getRecruiterById(1), JobCategory.UI));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 400000,
+                "Professional Mobile UI Designer", DatabaseRecruiter.getRecruiterById(2), JobCategory.UI));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 900000,
+                "Data Scientist", DatabaseRecruiter.getRecruiterById(3), JobCategory.DataScientist));
+        DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 300000,
+                "React Developer", DatabaseRecruiter.getRecruiterById(3), JobCategory.WebDeveloper));
         SpringApplication.run(JWork.class, args);
     }
 

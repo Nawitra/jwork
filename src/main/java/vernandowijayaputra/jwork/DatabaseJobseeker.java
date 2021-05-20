@@ -43,7 +43,7 @@ public class DatabaseJobseeker {
                     throw new EmailAlreadyExistsException(jobseeker);
                 }
             }
-        } catch(Exception error) {
+        } catch (Exception error) {
             throw new EmailAlreadyExistsException(jobseeker);
         }
 
@@ -64,5 +64,17 @@ public class DatabaseJobseeker {
             throw new JobSeekerNotFoundException(id);
         }
         throw new JobSeekerNotFoundException(id);
+    }
+
+    public static Jobseeker getJobseekerLogin(String email, String password) {
+        Jobseeker dummy = null;
+        for (int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
+            if (JOBSEEKER_DATABASE.get(i).getEmail().equals(email) &&
+                    JOBSEEKER_DATABASE.get(i).getPassword().equals(password)) {
+                dummy = JOBSEEKER_DATABASE.get(i);
+                return dummy;
+            }
+        }
+        return null;
     }
 }
