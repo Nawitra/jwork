@@ -13,7 +13,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class JWork {
 
-    public static void main(String[] args) throws RecruiterNotFoundException {
+    public static void main(String[] args) throws RecruiterNotFoundException, EmailAlreadyExistsException, JobNotFoundException, JobSeekerNotFoundException, OngoingInvoiceAlreadyExistsException {
+
         Location location1 =
                 new Location("Sumatera Selatan", "Lubuklinggau", "Lokasi pertama");
         Location location2 =
@@ -36,7 +37,13 @@ public class JWork {
                 "Data Scientist", DatabaseRecruiter.getRecruiterById(3), JobCategory.DataScientist));
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 300000,
                 "React Developer", DatabaseRecruiter.getRecruiterById(3), JobCategory.WebDeveloper));
-        SpringApplication.run(JWork.class, args);
+
+
+        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Vernando Wijaya Putra",
+                "vernando.wijaya@ui.ac.id", "Randomperson123", 2021, 3, 4));
+
+        DatabaseInvoice.addInvoice(new BankPayment(DatabaseInvoice.getLastId() + 1, DatabaseJob.getJobDatabase(), DatabaseJobseeker.getJobseekerById(1),
+                1000));
     }
 
 }
