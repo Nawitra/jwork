@@ -60,7 +60,7 @@ public class InvoiceController {
         return true;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
     public Invoice addBankPayment(
             @RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
             @RequestParam(value = "jobseekerId") int jobseekerId,
@@ -89,7 +89,7 @@ public class InvoiceController {
         return status ? invoice : null;
     }
 
-    @RequestMapping(value = "", method = RequestMethod.POST)
+    @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
     public Invoice addEWalletPayment(
             @RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
             @RequestParam(value = "jobseekerID") int jobseekerId,
