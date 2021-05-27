@@ -38,10 +38,6 @@ public class JWork {
         DatabaseJob.addJob(new Job(DatabaseJob.getLastId() + 1, 300000,
                 "React Developer", DatabaseRecruiter.getRecruiterById(3), JobCategory.WebDeveloper));
 
-
-        DatabaseJobseeker.addJobseeker(new Jobseeker(DatabaseJobseeker.getLastId() + 1, "Vernando Wijaya Putra",
-                "vernando.wijaya@ui.ac.id", "Randomperson123", 2021, 3, 4));
-
         SpringApplication.run(JWork.class, args);
     }
 

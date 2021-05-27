@@ -67,24 +67,26 @@ public class InvoiceController {
             @RequestParam(value = "adminFee") int adminFee
 
     ) throws JobSeekerNotFoundException {
-        ArrayList<Job> job = null;
+        Invoice invoice = null;
+        ArrayList<Job> jobs = new ArrayList<>();
         for (Integer integer : jobIdList) {
             try {
-                job.add(DatabaseJob.getJobById(integer));
+                jobs.add(DatabaseJob.getJobById(integer));
             } catch (JobNotFoundException e) {
                 e.getMessage();
             }
         }
-        Invoice invoice = new BankPayment(DatabaseInvoice.getLastId() + 1,
-                job,
-                DatabaseJobseeker.getJobseekerById(jobseekerId), adminFee);
-        Boolean status = null;
         try {
+            invoice = new BankPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId), adminFee);
             invoice.setTotalFee();
+        } catch (JobSeekerNotFoundException e) {
+            e.printStackTrace();
+        }
+        boolean status = false;
+        try {
             status = DatabaseInvoice.addInvoice(invoice);
-        } catch (OngoingInvoiceAlreadyExistsException error) {
-            error.getMessage();
-            return null;
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            e.printStackTrace();
         }
         return status ? invoice : null;
     }
@@ -96,26 +98,28 @@ public class InvoiceController {
             @RequestParam(value = "referralCode") String referralCode
 
     ) throws JobSeekerNotFoundException {
-        ArrayList<Job> job = null;
-        for (Integer integer : jobIdList) {
+        Invoice invoice = null;
+        ArrayList<Job> jobs = new ArrayList<>();
+        for (var i = 0; i < jobIdList.size(); i++) {
             try {
-                job.add(DatabaseJob.getJobById(integer));
+                jobs.add(DatabaseJob.getJobById(jobIdList.get(i)));
             } catch (JobNotFoundException e) {
                 e.getMessage();
             }
         }
-        Invoice invoice = new EwalletPayment(DatabaseInvoice.getLastId() + 1,
-                job,
-                DatabaseJobseeker.getJobseekerById(jobseekerId),
-                DatabaseBonus.getBonusByReferralCode(referralCode));
-        Boolean status = null;
         try {
+            invoice = new EwalletPayment(DatabaseInvoice.getLastId() + 1, jobs, DatabaseJobseeker.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByReferralCode(referralCode));
             invoice.setTotalFee();
+        } catch (JobSeekerNotFoundException e) {
+            e.printStackTrace();
+        }
+        boolean status = false;
+        try {
             status = DatabaseInvoice.addInvoice(invoice);
-        } catch (OngoingInvoiceAlreadyExistsException error) {
-            error.getMessage();
-            return null;
+        } catch (OngoingInvoiceAlreadyExistsException e) {
+            e.printStackTrace();
         }
         return status ? invoice : null;
+
     }
 }
