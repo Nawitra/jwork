@@ -158,7 +158,7 @@ public class Jobseeker
     }
     
     /**
-     * toString() untuk melakukan return
+     * toString() untuk mengembalikan nilai berbagai property
      */
     @Override
     public String toString() {

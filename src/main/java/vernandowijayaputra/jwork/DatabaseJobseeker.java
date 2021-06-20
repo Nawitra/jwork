@@ -1,6 +1,5 @@
 package vernandowijayaputra.jwork;
 
-import javax.sql.rowset.JoinRowSet;
 import java.util.ArrayList;
 
 /**
@@ -13,14 +12,31 @@ public class DatabaseJobseeker {
     private static final ArrayList<Jobseeker> JOBSEEKER_DATABASE = new ArrayList<Jobseeker>();
     private static int lastId = 0;
 
+    /**
+     * Method yang digunakan untuk mendapatkan database jobseeker
+     *
+     * @return semua entry dari dataabase jobseeker
+     */
     public static ArrayList<Jobseeker> getJobseekerDatabase() {
         return JOBSEEKER_DATABASE;
     }
 
+    /**
+     * Method yang digunakan untuk mendapatkan id terakhir dari database jobseeker
+     *
+     * @return lastId sebagai id terakhir
+     */
     public static int getLastId() {
         return lastId;
     }
 
+    /**
+     * Method yang digunakan untuk mendapatkan jobseeker berdasarkan id yang diberikan
+     *
+     * @param id merupakan id acuan untuk mendapatkan objek jobseeker
+     * @return objek jobseeker apabila berhasil
+     * @throws JobSeekerNotFoundException
+     */
     public static Jobseeker getJobseekerById(int id) throws JobSeekerNotFoundException {
         Jobseeker dummy = null;
         try {
@@ -36,6 +52,13 @@ public class DatabaseJobseeker {
         throw new JobSeekerNotFoundException(id);
     }
 
+    /**
+     * Method yang digunakan untuk menambahkan objek jobseeker baru ke dalam database
+     *
+     * @param jobseeker sebagai objek jobseeker yang ingin ditambahkan
+     * @return true apabila berhasil
+     * @throws EmailAlreadyExistsException
+     */
     public static boolean addJobseeker(Jobseeker jobseeker) throws EmailAlreadyExistsException {
         try {
             for (int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
@@ -52,6 +75,13 @@ public class DatabaseJobseeker {
         return true;
     }
 
+    /**
+     * Method yang digunakan untuk menghapus suatu jobseeker dari database
+     *
+     * @param id sebagai id dari jobseeker yang ingin dihapus
+     * @return true apabila berhasil
+     * @throws JobSeekerNotFoundException
+     */
     public static boolean removeJobseeker(int id) throws JobSeekerNotFoundException {
         try {
             for (int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {
@@ -66,6 +96,13 @@ public class DatabaseJobseeker {
         throw new JobSeekerNotFoundException(id);
     }
 
+    /**
+     * Method yang digunakan untuk mendapatkan jobseeker yang digunakan untuk login
+     *
+     * @param email dari jobseeker
+     * @param password dari jobseeker
+     * @return objek jobseeker yang digunakan untuk login
+     */
     public static Jobseeker getJobseekerLogin(String email, String password) {
         Jobseeker dummy = null;
         for (int i = 0; i < JOBSEEKER_DATABASE.size(); i++) {

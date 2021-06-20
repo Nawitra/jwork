@@ -13,11 +13,21 @@ public enum InvoiceStatus
     Cancelled("Cancelled");
     
     private String status;
-    
+
+    /**
+     * Method yang digunakan untuk menggantikan status dari suatu invoice
+     *
+     * @param status merupakan status baru untuk menggantikan status lama
+     */
     private InvoiceStatus(String status) {
         this.status = status;    
     }
-    
+
+    /**
+     * Method yang digunakan untuk menampilkan status dalam bentuk string
+     *
+     * @return status
+     */
     public String toString() {
         return status;
     }

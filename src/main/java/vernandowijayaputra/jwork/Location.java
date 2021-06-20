@@ -8,12 +8,23 @@ package vernandowijayaputra.jwork;
  */
 public class Location
 {
+    private int id = 0;
     private String province = "", city = "", description = "";
 
-    public Location(String province, String city, String description) {
+    public Location(int id, String province, String city, String description) {
+        this.id = id;
         this.province = province;
         this.city = city;
         this.description = description;
+    }
+
+    /**
+     * getId digunakan untuk mendapatkan nilai dari property id
+     *
+     * @return nilai dari property id
+     */
+    public int getId() {
+        return id;
     }
 
     /**
@@ -42,7 +53,17 @@ public class Location
     public String getDescription() {
         return description;    
     }
-    
+
+    /**
+     * setId untuk menggantikan nilai dari property id
+     *
+     * @param id, property yang nilainya akan digantikan, dengan tipe int
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
     /**
      * setProvince untuk menggantikan nilai dari property province
      * 

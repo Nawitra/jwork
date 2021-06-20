@@ -12,14 +12,31 @@ public class DatabaseJob {
     private static final ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
     private static int lastId = 0;
 
+    /**
+     * Method ini digunakan untuk mendapatkan database job
+     *
+     * @return semua entry dari dataabase job
+     */
     public static ArrayList<Job> getJobDatabase() {
         return JOB_DATABASE;
     }
 
+    /**
+     * Method ini digunakan untuk mendapatkan id terakhir dari database job
+     *
+     * @return lastid sebagai id terakhir
+     */
     public static int getLastId() {
         return lastId;
     }
 
+    /**
+     * Method ini digunakan untuk mendapatkan suatu job berdasarkan id yang diberikan
+     *
+     * @param id sebagai id acuan untuk mendapatkan job
+     * @return objek job
+     * @throws JobNotFoundException
+     */
     public static Job getJobById(int id) throws JobNotFoundException {
         Job dummy = null;
         try {
@@ -35,6 +52,12 @@ public class DatabaseJob {
         throw new JobNotFoundException(id);
     }
 
+    /**
+     * Method ini digunakan untuk mendapatkan job berdasarkan recruiter
+     *
+     * @param recruiterId sebagai acuan untuk mendapatkan job
+     * @return semua objek job yang dimiliki oleh recruiter tersebut
+     */
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
         ArrayList<Job> dummy = new ArrayList<Job>();
         for (int i = 0; i < JOB_DATABASE.size(); i++) {
@@ -45,6 +68,12 @@ public class DatabaseJob {
         return dummy;
     }
 
+    /**
+     * Method ini digunakan untuk mendapatkan job berdasarkan kategori
+     *
+     * @param category sebagai acuan untuk mendapatkan job
+     * @return semua objek job yang memiliki kategori tersebut
+     */
     public static ArrayList<Job> getJobByCategory(JobCategory category) {
         ArrayList<Job> dummy = new ArrayList<Job>();
         for (int i = 0; i < JOB_DATABASE.size(); i++) {
@@ -55,12 +84,25 @@ public class DatabaseJob {
         return dummy;
     }
 
+    /**
+     * Method ini digunakan untuk menambah job baru ke dalam database
+     *
+     * @param job sebagai objek yang akan ditambah ke dalam database
+     * @return true apabila berhasil
+     */
     public static boolean addJob(Job job) {
         JOB_DATABASE.add(job);
         lastId = job.getId();
         return true;
     }
 
+    /**
+     * Method ini digunakan untuk menghapus suatu job dari database
+     *
+     * @param id sebagai id job yang ingin dihapus
+     * @return true apabila berhasil
+     * @throws JobNotFoundException
+     */
     public static boolean removeJob(int id) throws JobNotFoundException {
         try {
             for (int i = 0; i < JOB_DATABASE.size(); i++) {

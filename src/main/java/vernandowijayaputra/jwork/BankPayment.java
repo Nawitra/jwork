@@ -66,7 +66,7 @@ public class BankPayment extends Invoice
     }
     
     /**
-     * printData untuk menampilkan nilai dari berbagai property
+     * Method ini digunakan untuk menampilkan nilai dari berbagai property
      */
     @Override
     public String toString() {

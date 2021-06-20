@@ -5,7 +5,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 /**
- * Class yang menangani detail dari informasi tagihan
+ * Class yang menangani detail dari informasi invoice atau tagihan
  *
  * @author Vernando Wijaya Putra
  * @version 2021.03.18
@@ -78,19 +78,19 @@ public abstract class Invoice
     public ArrayList<Job> getJobs() {
         return jobs;
     }
-    
+
     /**
      * getInvoiceStatus untuk mendapatkan nilai dari objek invoiceStatus
      *
      * @return nilai dari objek status
      */
     public InvoiceStatus getInvoiceStatus() {
-        return invoiceStatus;   
+        return invoiceStatus;
     }
-    
+
     /**
      * setId untuk menggantikan nilai dari property id
-     * 
+     *
      * @param id, property yang nilainya akan digantikan, dengan tipe int
      */
     public void setId(int id) {
@@ -99,26 +99,26 @@ public abstract class Invoice
 
     /**
      * setJob untuk menggantikan nilai dari property pada objek Jobs
-     * 
+     *
      * @param jobs, property yang nilainya akan digantikan, dengan tipe jobs
      */
     public void setJobs(ArrayList<Job> jobs) {
         this.jobs = jobs;
     }
 
-    
+
     /**
      * setDate untuk menggantikan nilai dari property date
-     * 
+     *
      * @param date, property yang nilainya akan digantikan, dengan tipe String
      */
     public void setDate(Calendar date){
         this.date = date;
     }
-    
+
     /**
      * setDate untuk menggantikan nilai year, month, dan dayOfMonth
-     * 
+     *
      * @param year, month, dan dayOfMonth
      */
     public void setDate(int year, int month, int dayOfMonth){
@@ -127,29 +127,27 @@ public abstract class Invoice
 
     /**
      * setTotalFee untuk menggantikan nilai dari property totalFee
-     * 
-     * @param totalFee, property yang nilainya akan digantikan, dengan tipe int
      */
     public abstract void setTotalFee();
 
     /**
      * setJobseeker untuk menggantikan nilai dari property pada objek jobseeker
-     * 
+     *
      * @param jobseeker, property yang nilainya akan digantikan, dengan tipe Jobseeker
      */
     public void setJobseeker(Jobseeker jobseeker) {
         this.jobseeker = jobseeker;
     }
-    
+
     /**
      * setInvoiceStatus untuk menggantikan nilai dari property pada objek invoiceStatus
-     * 
-     * @param status, property yang nilainya akan digantikan, dengan tipe status
+     *
+     * @param invoiceStatus, property yang nilainya akan digantikan, dengan tipe status
      */
     public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
         this.invoiceStatus = invoiceStatus;
     }
-    
+
     /**
      * toString digunakan untuk menampilkan berbagai parameter
      */

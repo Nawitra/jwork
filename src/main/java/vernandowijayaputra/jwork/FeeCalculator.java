@@ -1,7 +1,11 @@
 package vernandowijayaputra.jwork;
 
-import java.util.ArrayList;
-
+/**
+ * Class yang digunakan untuk menghitung total biaya dari invoice
+ *
+ * @author Vernando Wijaya Putra
+ * @version 2021.06.07
+ */
 public class FeeCalculator implements Runnable {
     private Invoice invoice;
 
@@ -9,6 +13,9 @@ public class FeeCalculator implements Runnable {
         this.invoice = invoice;
     }
 
+    /**
+     * Method untuk menghitung total biaya dari semua invoice
+     */
     @Override
     public void run() {
         System.out.println("\ncalculating invoice id: " + invoice.getId());

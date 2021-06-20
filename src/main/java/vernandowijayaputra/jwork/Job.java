@@ -19,7 +19,6 @@ public class Job
         this.name = name;
         this.category = category;
         this.recruiter = recruiter;
-        this.category = category;
     }
     
     /**
@@ -114,7 +113,7 @@ public class Job
     }
     
     /**
-     * toString() mengembalikan nilai
+     * toString() mengembalikan nilai dari berbagai property
      */
     public String toString() {
         return "Id = " + getId() + "\nName = " + getName() + "\nRecruiter = " + getRecruiter() +

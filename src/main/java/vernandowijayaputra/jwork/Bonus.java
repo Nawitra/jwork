@@ -1,7 +1,7 @@
 package vernandowijayaputra.jwork;
 
 /**
- * Write a description of class Bonus here.
+ * Class yang menangani detail dari bonus
  *
  * @author Vernando Wijaya Putra
  * @version 2021.1.4

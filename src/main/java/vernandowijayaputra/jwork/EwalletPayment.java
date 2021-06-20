@@ -22,20 +22,38 @@ public class EwalletPayment extends Invoice
         super(id, jobs, jobseeker);
         this.bonus = bonus;
     }
-    
+
+    /**
+     * getPaymentType untuk mendapatkan nilai dari konstan PAYMENT_TYPE
+     *
+     * @return nilai dari konstan PAYMENT_TYPE
+     */
     @Override
     public PaymentType getPaymentType() {
         return PAYMENT_TYPE;    
     }
-    
+
+    /**
+     * Method yang digunakan untuk mendapatkan bonus
+     *
+     * @return objek bonus
+     */
     public Bonus getBonus() {
         return bonus;    
     }
-    
+
+    /**
+     * Method yang digunakan menggantikan nilai bonus
+     *
+     * @param bonus sebagai objek yang ingin digantikan
+     */
     public void setBonus(Bonus bonus) {
         this.bonus = bonus;    
     }
-    
+
+    /**
+     * setTotalFee untuk menggantikan nilai dari property totalFee
+     */
     @Override
     public void setTotalFee() {
         for(int i = 0; i < getJobs().size(); i++) {
@@ -46,7 +64,10 @@ public class EwalletPayment extends Invoice
             }
         }
     }
-    
+
+    /**
+     * Method ini digunakan untuk menampilkan nilai dari berbagai property
+     */
     @Override
     public String toString() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd MMMM yyyy");

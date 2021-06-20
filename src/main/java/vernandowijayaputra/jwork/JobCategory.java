@@ -18,11 +18,21 @@ public enum JobCategory
     DataAnalyst("DataAnalyst");
     
     private String category;
-    
+
+    /**
+     * Method yang digunakan untuk mengganti nilai kategori
+     *
+     * @param category sebagai kategori baru untuk menggantikan kategori lama
+     */
     private JobCategory(String category) {
         this.category = category;    
     }
-    
+
+    /**
+     * Method yang digunakan untuk mengembalikan nilai category dalam bentuk string
+     *
+     * @return category
+     */
     @Override
     public String toString() {
         return category;    
