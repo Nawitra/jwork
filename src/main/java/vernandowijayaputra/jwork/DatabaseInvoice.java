@@ -30,7 +30,7 @@ public class DatabaseInvoice {
      *
      * @param id sebagai id acuan untuk mengambil invoice
      * @return objek invoice
-     * @throws InvoiceNotFoundException
+     * @throws InvoiceNotFoundException apabila invoice tidak ada di database
      */
     public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException {
         Invoice dummy = null;
@@ -68,7 +68,7 @@ public class DatabaseInvoice {
      *
      * @param invoice sebagai objek invoice yang akan ditambahkan
      * @return true apabila berhasil
-     * @throws OngoingInvoiceAlreadyExistsException
+     * @throws OngoingInvoiceAlreadyExistsException apabila masih ada invoice dengan status OnGoing
      */
     public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException {
         try {
@@ -107,7 +107,7 @@ public class DatabaseInvoice {
      *
      * @param id dari invoice yang ingin dihapus
      * @return true bila berhasil
-     * @throws InvoiceNotFoundException
+     * @throws InvoiceNotFoundException apabila invoice tidak ada di database
      */
     public static boolean removeInvoice(int id) throws InvoiceNotFoundException {
         try {

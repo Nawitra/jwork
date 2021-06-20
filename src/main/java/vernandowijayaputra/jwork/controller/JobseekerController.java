@@ -21,6 +21,7 @@ public class JobseekerController {
     /**
      * Method placeholder yang digunakan untuk menampilkan pesan
      *
+     * @param name sebagai nama yang ingin ditampilkan pada pesan
      * @return string Hello, disertai dengan nama yang telah dipassing
      */
     @RequestMapping("")

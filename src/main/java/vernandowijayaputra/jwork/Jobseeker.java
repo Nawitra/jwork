@@ -149,7 +149,9 @@ public class Jobseeker
     /**
      * setJoinDate untuk menggantikan nilai dari property joinDate
      * 
-     * @param year, month, dan dayOfMonth
+     * @param year sebagai variable yang menyimpan tahun
+     * @param month sebagai variable yang menyimpan bulan
+     * @param dayOfMonth sebagai variable yang menyimpan hari
      */
     public void setJoinDate(int year, int month, int dayOfMonth) {
         this.joinDate.set(Calendar.YEAR, year);

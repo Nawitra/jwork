@@ -35,7 +35,7 @@ public class DatabaseJob {
      *
      * @param id sebagai id acuan untuk mendapatkan job
      * @return objek job
-     * @throws JobNotFoundException
+     * @throws JobNotFoundException apabila job tidak ada di database
      */
     public static Job getJobById(int id) throws JobNotFoundException {
         Job dummy = null;
@@ -101,7 +101,7 @@ public class DatabaseJob {
      *
      * @param id sebagai id job yang ingin dihapus
      * @return true apabila berhasil
-     * @throws JobNotFoundException
+     * @throws JobNotFoundException apabila job tidak ada di database
      */
     public static boolean removeJob(int id) throws JobNotFoundException {
         try {

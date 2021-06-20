@@ -149,6 +149,7 @@ public class DatabaseJobPostgre {
     /**
      * Method ini akan mengambil semua job yang dimiliki oleh seorang recruiter
      *
+     * @param recruiterTableId sebagai id dari recruiter
      * @return array list yang berisi job apabila berhasil, null apabila gagal
      */
     public static ArrayList<Job> getJobByRecruiter(int recruiterTableId) {
@@ -189,6 +190,7 @@ public class DatabaseJobPostgre {
     /**
      * Method ini akan mengambil semua job yang berdasarkan kategorinya
      *
+     * @param categoryTable sebagai category dari job
      * @return array list yang berisi job apabila berhasil, null apabila gagal
      */
     public static ArrayList<Job> getJobByCategory(String categoryTable) {

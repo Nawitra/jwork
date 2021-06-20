@@ -35,7 +35,7 @@ public class DatabaseBonus {
      *
      * @param id sebagai id acuan untuk mendapatkan bonus
      * @return objek bonus
-     * @throws BonusNotFoundException
+     * @throws BonusNotFoundException apabila bonus tidak ada di database
      */
     public static Bonus getBonusById(int id) throws BonusNotFoundException {
         Bonus dummy = null;
@@ -73,7 +73,7 @@ public class DatabaseBonus {
      *
      * @param bonus sebagai objek bonus yang ingin ditambahkan ke dalam database
      * @return true apabila berhasil
-     * @throws ReferralCodeAlreadyExistsException
+     * @throws ReferralCodeAlreadyExistsException apabila referral code sudah ada di database
      */
     public static boolean addBonus(Bonus bonus) throws ReferralCodeAlreadyExistsException {
         try {
@@ -127,7 +127,7 @@ public class DatabaseBonus {
      *
      * @param id dari bonus yang ingin dihapus
      * @return true apabila berhasil
-     * @throws BonusNotFoundException
+     * @throws BonusNotFoundException apabila bonus tidak ada di database
      */
     public static boolean removeBonus(int id) throws BonusNotFoundException {
         try {

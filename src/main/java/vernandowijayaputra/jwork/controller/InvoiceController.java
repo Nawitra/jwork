@@ -103,7 +103,7 @@ public class InvoiceController {
      * @param jobseekerId merupakan id dari jobseeker
      * @param adminFee menyimpan nilai admin fee
      * @return invoice yang telah dibuat bila berhasil, null bila gagal
-     * @throws JobSeekerNotFoundException
+     * @throws JobSeekerNotFoundException apabila jobseeker tidak ada di database
      */
     @RequestMapping(value = "/createBankPayment", method = RequestMethod.POST)
     public Invoice addBankPayment(

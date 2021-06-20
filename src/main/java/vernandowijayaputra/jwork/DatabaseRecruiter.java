@@ -35,7 +35,7 @@ public class DatabaseRecruiter {
      *
      * @param id sebagai acuan untuk mendapatkan recruiter
      * @return objek recruiter
-     * @throws RecruiterNotFoundException
+     * @throws RecruiterNotFoundException apabila recruiter tidak ada di database
      */
     public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException {
         Recruiter dummy = null;
@@ -69,7 +69,7 @@ public class DatabaseRecruiter {
      *
      * @param id dari recruiter yang ingin dihapus
      * @return true apabila berhasil
-     * @throws RecruiterNotFoundException
+     * @throws RecruiterNotFoundException apabila recruiter tidak ada di database
      */
     public static boolean removeRecruiter(int id) throws RecruiterNotFoundException {
         try {

@@ -119,7 +119,9 @@ public abstract class Invoice
     /**
      * setDate untuk menggantikan nilai year, month, dan dayOfMonth
      *
-     * @param year, month, dan dayOfMonth
+     * @param year sebagai variable yang menyimpan tahun
+     * @param month sebagai variable yang menyimpan bulan
+     * @param dayOfMonth sebagai variable yang menyimpan hari
      */
     public void setDate(int year, int month, int dayOfMonth){
         this.date = new GregorianCalendar(year, month-1, dayOfMonth);

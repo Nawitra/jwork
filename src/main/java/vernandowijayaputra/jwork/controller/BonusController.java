@@ -45,7 +45,7 @@ public class BonusController {
      * @param minTotalFee merupakan variable yang menyimpan min total fee
      * @param active merupakan variable yang menyimpan status aktif
      * @return objek bonus yang telah dibuat dan dimasukkan ke dalam database
-     * @throws ReferralCodeAlreadyExistsException
+     * @throws ReferralCodeAlreadyExistsException apabila referral code sudah ada di database
      */
     @RequestMapping(value = "", method = RequestMethod.POST)
     public Bonus addBonus(
